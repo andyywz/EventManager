@@ -11,3 +11,66 @@
  *= require_self
  *= require_tree .
  */
+
+/* --- RESET --- */
+
+html, body, header, footer, section, article, div, 
+strong, a, img, p, h1, h2, h3, time, ul, li, small {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* --- ELEMENTS --- */
+
+body {
+	font-family: Menlo;
+	font-size: 13px;
+	background: #eee;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+	color: #00f;
+}
+
+strong {
+	font-weight: bold;
+}
+
+img {
+}
+
+.alert {
+	color: red;
+	margin: 0 0 10px 0;
+}
+
+.notice {
+	color: green;
+	margin: 0 0 10px 0;
+}
+
+.main {
+	width: 100%;
+	padding: 70px 0;
+}
+
+.content {
+	width: 840px;
+	margin: auto;
+	padding: 25px;
+	background: white;
+	border: 2px ridge lightgray;
+	border-radius: 10px;
+}

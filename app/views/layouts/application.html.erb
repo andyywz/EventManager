@@ -7,18 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<%= render partial: "shared/header" %>
 
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+	<div class="main">
+		<section class="content">
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+			<%= yield %>
+		</section>
+	</div>
 	
-	<% if user_signed_in? %>
-	  <%= button_to "logout", destroy_user_session_path, method: :delete %>
-	<% else %>
-	  <%= link_to "sign up", new_user_registration_path %>
-		<%= link_to "login", new_user_session_path %>
-	<% end %>
-	
-	<%= yield %>
-
 </body>
 </html>
