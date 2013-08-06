@@ -1,12 +1,12 @@
-<h2>Resend confirmation instructions</h2>
+<h2 class="session-header">Resend confirmation instructions</h2>
 
 <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :login %><br />
+  <div class="form-field"><%= f.label :login, "Username or Email" %><br />
   <%= f.text_field :login, :autofocus => true %></div>
 
-  <div><%= f.submit "Resend confirmation instructions" %></div>
+  <div class="session-button"><%= f.submit "Resend confirmation instructions" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>

@@ -10,7 +10,7 @@
 				<li><a href="#">About</a></li>
 				
 				<% if user_signed_in? %>
-					<li><a href="#">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li>
 						<a href="<%= user_path(current_user.id) %>">
 							<%= current_user.username %>
