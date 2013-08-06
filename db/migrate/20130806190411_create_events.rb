@@ -9,6 +9,7 @@ class CreateEvents < ActiveRecord::Migration
       t.boolean :recurring
       t.string  :floor
       t.text    :body
+      t.integer :user_id
       
       t.timestamps
     end

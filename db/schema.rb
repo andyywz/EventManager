@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130806192808) do
     t.boolean  "recurring"
     t.string   "floor"
     t.text     "body"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

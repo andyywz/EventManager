@@ -1,17 +1,17 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, 
          :rememberable, :trackable, :validatable, authentication_keys: [:login]
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :fname, :lname, :type, :username, :login, :avatar
   
   attr_accessor :login
-  
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: ["100x100>", :png] }, default_url: "/attachments/"
+    
+  has_many :events
+  has_many :attendings
+  has_many :attending_events, through: :attendings, source: :occurrence
+  
   validates :username, uniqueness: { case_sensitive: false }
   
   def self.find_first_by_auth_conditions(warden_conditions)
