@@ -1,0 +1,61 @@
+.session-header {
+	display: none;
+}
+
+input[type="submit"] {
+	margin-bottom: 5px;
+	padding: 5px 20px;
+	border: 1px;
+	border-radius: 5px;
+  background: gray;
+	opacity: 0.6;
+	font-size: 13px;
+	color: white;
+	cursor: pointer;
+  overflow: visible;
+}
+
+input[type="submit"]:first-child {
+	margin-top: 0;
+}
+
+input[type="submit"]:hover {
+	opacity: 1;
+}
+
+input.destroy-button {
+	background: red;
+}
+
+input.back-button {
+}
+
+.form-field {
+	margin-bottom: 8px;
+}
+
+.edit-form {
+	float: right;
+}
+
+.picture {
+}
+
+.name-field {
+	float: left;
+}
+
+.avatar {
+	float: left;
+	width: 200px;
+	padding: 0;
+	margin: 0;
+}
+
+.avatar-label {
+	float: left;
+}
+
+.avatar-thumb {
+	padding: 5px 0;
+}

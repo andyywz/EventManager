@@ -1,0 +1,92 @@
+/* --- UTILITIES --- */
+
+.group:after {
+	clear: both;
+	display: table;
+	content: "";
+}
+
+/* --- HEADER --- */
+
+.header {
+	background: rgb(27,27,27); /* Old browsers */
+
+	background: -moz-linear-gradient(-45deg,  rgba(27,27,27,1) 4%, rgba(13,13,13,1) 36%, rgba(1,1,1,1) 78%, rgba(149,149,149,1) 100%); /* FF3.6+ */
+
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(4%,rgba(27,27,27,1)), color-stop(36%,rgba(13,13,13,1)), color-stop(78%,rgba(1,1,1,1)), color-stop(100%,rgba(149,149,149,1))); /* Chrome,Safari4+ */
+
+	background: -webkit-linear-gradient(-45deg,  rgba(27,27,27,1) 4%,rgba(13,13,13,1) 36%,rgba(1,1,1,1) 78%,rgba(149,149,149,1) 100%); /* Chrome10+,Safari5.1+ */
+
+	background: -o-linear-gradient(-45deg,  rgba(27,27,27,1) 4%,rgba(13,13,13,1) 36%,rgba(1,1,1,1) 78%,rgba(149,149,149,1) 100%); /* Opera 11.10+ */
+
+	background: -ms-linear-gradient(-45deg,  rgba(27,27,27,1) 4%,rgba(13,13,13,1) 36%,rgba(1,1,1,1) 78%,rgba(149,149,149,1) 100%); /* IE10+ */
+
+	background: linear-gradient(135deg,  rgba(27,27,27,1) 4%,rgba(13,13,13,1) 36%,rgba(1,1,1,1) 78%,rgba(149,149,149,1) 100%); /* W3C */
+
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b1b1b', endColorstr='#959595',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	border-bottom: 1px solid #ccc;
+	opacity: 0.9;
+	position: fixed;
+	width: 100%;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 13px;
+}
+
+.header-wrap {
+	width: 900px;
+	margin: auto;
+}
+
+.header-logo {
+	float: left;
+}
+
+.header-logo > a {
+	padding: 10px 40px 10px 20px;
+	display: block;
+	color: #fff;
+	font-weight: bold;
+}
+
+.header-logo > a:hover {
+	opacity: 0.7;
+}
+
+.header-nav {
+	float: right;
+}
+
+.header-nav > ul {
+}
+
+.header-nav > ul > li {
+	float: left;
+}
+
+.header-nav > ul > li > a {
+	padding: 10px 10px;
+	display: block;
+	color: #fff;
+	opacity: 0.7;
+}
+
+.header-nav > ul > li > a:hover, #logout-button:hover, #login-button:hover {
+	opacity: 1;
+}
+
+#login-button {
+	background: green;
+	margin: 7px 15px 7px 5px;
+	padding: 3px 20px;
+	border: 1px;
+	border-radius: 3px;
+}
+
+#logout-button { 
+	background: red;
+	margin: 7px 15px 7px 5px;
+	padding: 3px 20px;
+	border: 1px;
+	border-radius: 3px;
+}

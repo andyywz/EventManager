@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!, except: :show
+  before_filter :user_signed_in?, except: :show
   
   def index
   end

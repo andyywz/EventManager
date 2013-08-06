@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable, authentication_keys: [:login]
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :fname, :lname, :type, :username, :login, :avatar
+  attr_accessible :fname, :lname, :kind, :username, :login, :avatar
   
   attr_accessor :login
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: ["100x100>", :png] }, default_url: "/attachments/"

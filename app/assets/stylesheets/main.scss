@@ -1,0 +1,70 @@
+/* --- RESET --- */
+
+html, body, header, footer, section, article, div, 
+strong, a, img, p, h1, h2, h3, time, ul, li, small, label {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* --- ELEMENTS --- */
+
+body {
+	font-family: Menlo;
+	font-size: 13px;
+	background: #eee;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+	color: #00f;
+}
+
+strong {
+	font-weight: bold;
+}
+
+img {
+}
+
+.alert {
+	color: red;
+	margin: 0 0 10px 0;
+}
+
+.notice {
+	color: green;
+	margin: 0 0 10px 0;
+}
+
+.main {
+	width: 100%;
+	padding: 70px 0;
+}
+
+.main-header {
+	font-size: 30px;
+	margin-bottom: 5px;
+}
+
+.big-title {
+	font-size: 30px;
+	font-family: sans-serif;
+	margin-bottom: 10px;
+}
+
+.medium-title {
+	font-size: 20px;
+	font-family: sans-serif;
+	color: white;
+}

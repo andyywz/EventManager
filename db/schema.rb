@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806192808) do
+ActiveRecord::Schema.define(:version => 20130806205141) do
 
   create_table "attendings", :force => true do |t|
     t.integer  "user_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20130806192808) do
     t.string   "place"
     t.integer  "age_limit"
     t.string   "music"
-    t.boolean  "recurring"
+    t.boolean  "reccurring"
     t.string   "floor"
     t.text     "body"
     t.integer  "user_id"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20130806192808) do
     t.string   "fname"
     t.string   "lname"
     t.string   "username"
-    t.string   "type"
+    t.string   "kind"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "avatar_file_name"

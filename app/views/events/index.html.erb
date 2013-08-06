@@ -1,0 +1,29 @@
+<h1 class="big-title">
+	This Week in Swing NYC - <%= DateTime.now.strftime('%b %d %Y') %>
+</h1>
+
+<section class="recurring">
+	<h1 class="medium-title">
+		Weekly Events
+	</h1>
+<% @reccurring_events.each do |o| %>
+	<h2><%= o.event.name %></h2>
+	<time>
+		<%= o.event_time.strftime('%a') %>
+		<%= o.event_time.strftime('%I:%M %p') %>
+	</time>
+<% end %>
+</section>
+
+<section class="special">
+	<h1 class="medium-title">
+		Special Events
+	</h1>
+<% @events.each do |o| %>
+	<h2><%= o.event.name %></h2>
+	<time>
+		<%= o.event_time.strftime('%a %b %d %Y') %>
+		<%= o.event_time.strftime('%I:%M %p') %>
+	</time>
+<% end %>
+</section>
