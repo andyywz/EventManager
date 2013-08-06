@@ -7,8 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+		
 	<%= render partial: "shared/header" %>
-
+	
 	<div class="main">
 		<div class="content group">
 			<p class="notice"><%= notice %></p>
@@ -16,6 +17,12 @@
 			<%= yield %>
 		</div>
 	</div>
+
 	
+	<div class="shadowbox hide">
+	</div>
+	<div class="lightbox hide">
+		<%= render partial: "shared/about" %>
+	</div>
 </body>
 </html>

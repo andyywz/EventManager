@@ -3,11 +3,20 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
   <%= devise_error_messages! %>
 	
-	<div class="form-field"><%= f.label :avatar, "Choose a New Avatar" %><br />
-	<div class="avatar-thumb"><%= image_tag @user.avatar.url(:thumb) %></div>
-	<%= f.file_field :avatar %></div>
-	
-  <div class="form-field"><%= f.label :fname, "First Name" %><br />
+	<div class="avatar group">
+		
+		<%= f.label :avatar, "Choose a New Avatar", class: "avatar-label" %><br />
+		
+		<div class="avatar-thumb">
+			<%= image_tag @user.avatar.url(:thumb) %>
+		</div>
+		
+		<%= f.file_field :avatar %>
+	</div>
+		
+	<div class="edit-form group">
+  
+	<div class="name-field"><%= f.label :fname, "First Name" %><br />
   <%= f.text_field :fname, :autofocus => true %></div>
 	
   <div class="form-field"><%= f.label :lname, "Last Name" %><br />
@@ -35,8 +44,11 @@
   <div class="session-button"><%= f.submit "Update" %></div>
 <% end %>
 
-<%= button_to "Back", :back, class: "back-button", method: "get" %>
+	<h3 class="session-header">Cancel my account</h3>
 
-<h3 class="session-header">Cancel my account</h3>
+	<p class="destroy"><%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "destroy-button" %></p>
+	
+	<%= button_to "Back", :back, class: "back-button", method: "get" %>
+	</div>
 
-<p class="destroy group"><%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: "destroy-button" %></p>
+	

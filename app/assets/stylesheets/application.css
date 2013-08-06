@@ -15,7 +15,7 @@
 /* --- RESET --- */
 
 html, body, header, footer, section, article, div, 
-strong, a, img, p, h1, h2, h3, time, ul, li, small {
+strong, a, img, p, h1, h2, h3, time, ul, li, small, label {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -70,3 +70,4 @@ img {
 	font-size: 30px;
 	margin-bottom: 5px;
 }
+
