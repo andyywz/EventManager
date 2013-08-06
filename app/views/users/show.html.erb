@@ -1,8 +1,98 @@
-<h1 class="main-header"><%= @user.username %>'s Page</h1>
 
-
-<% if @user == current_user %>
-	<%= button_to "Edit", edit_user_registration_url, method: "get" %>
-<% else %>
-	YOU CANT DO THIS
-<% end %>
+  <section class="content-sidebar">
+    <div class="profile-picture">
+			<a href="#"><%= image_tag @user.avatar.url(:medium) %></a>
+		</div>
+    
+    <div class="profile-info">
+      <h2><%= @user.fname + " " + @user.lname %></h2>
+			<% if @user == current_user %>
+				<%= button_to "Edit", edit_user_registration_url, method: "get" %>
+			<% end %>
+      <p>
+        <strong>Born</strong> April 6, 1898<br>
+        <strong>City</strong> Meaux, France
+      </p>
+    </div>
+    
+    <!-- <nav class="profile-nav">
+      <ul>
+        <li><a href="#">Wall</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Friends</a></li>
+        <li><a href="#">Photos</a></li>
+      </ul>
+    </nav> -->
+    
+  </section>
+  <section class="content-main">
+    
+    <header class="content-header">
+      <h1><%= @user.fname %>'s Wall</h1>
+    </header>
+    
+    <div class="posts">
+      
+      <article class="post">
+        <header class="group">
+      
+          <div class="post-thumb">
+            <a href="#"><%= image_tag @user.avatar.url(:thumb) %></a>
+          </div>
+      
+          <div class="post-info">
+            <h3><a href="#"><%= @user.fname + " " + @user.lname %></a></h3>
+            <time>3 hours ago</time>
+          </div>
+      
+        </header>
+        <div class="post-text">
+      
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+        </div>
+      </article>
+      
+      <article class="post">
+        <header class="group">
+      
+          <div class="post-thumb">
+            <a href="#"><%= image_tag @user.avatar.url(:thumb) %></a>
+          </div>
+      
+          <div class="post-info">
+            <h3><a href="#"><%= @user.fname + " " + @user.lname %></a></h3>
+            <time>3 hours ago</time>
+          </div>
+      
+        </header>
+        <div class="post-text">
+      
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+        </div>
+      </article>
+      
+      <article class="post">
+        <header class="group">
+      
+          <div class="post-thumb">
+            <a href="#"><%= image_tag @user.avatar.url(:thumb) %></a>
+          </div>
+      
+          <div class="post-info">
+            <h3><a href="#"><%= @user.fname + " " + @user.lname %></a></h3>
+            <time>3 hours ago</time>
+          </div>
+      
+        </header>
+        <div class="post-text">
+      
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+        </div>
+      </article>
+      
+    </div>
+    
+  </section>
