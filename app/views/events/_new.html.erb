@@ -1,0 +1,39 @@
+<%= form_for(@event, remote: true, html: {id: "event-form"}) do |f| %>
+	
+	<%= f.label :name, "Event Name: " %><br>
+	<%= f.text_field :name %><br>
+	
+	<%= f.label :place, "Venue: " %><br>
+  <%= f.text_field :place %><br>
+	
+	<%= f.radio_button :reccurring, true, checked: true %>
+	<%= f.label :place, "Weekly Event" %>
+	<%= f.radio_button :reccurring, false %>
+	<%= f.label :place, "Special Event" %>
+	<br>
+	
+	<label for="occurrence_date">Date: </label><br>
+	<input id="occurrence_date" name="occurrence[date]" type="date">
+	<br>
+	
+	<label for="occurrence_time">Time: </label>	<br>
+	<input id="occurrence_time" name="occurrence[time]" type="time">
+	<br>
+	
+  <%= f.label :cover, "Cover/Fee: " %><br>
+  <%= f.number_field :cover %><br>	
+	
+  <%= f.label :age_limit, "Age Limit: " %><br>
+  <%= f.number_field :age_limit, {max: 21, step: 21} %><br>
+	
+  <%= f.label :music, "Music: " %><br>
+  <%= f.text_field :music %><br>
+	
+  <%= f.label :floor, "Floor: " %><br>
+  <%= f.text_field :floor %><br>
+	
+  <%= f.label :body, "ETC: " %><br>
+  <%= f.text_area :body %><br>
+	
+  <%= f.submit %>
+<% end %>

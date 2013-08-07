@@ -2,6 +2,15 @@
 	This Week in Swing NYC - <%= DateTime.now.strftime('%b %d %Y') %>
 </h1>
 
+<li>
+	<a id="new-event-button" href="#">New Event</a>
+	
+	<div class="new-event hide">
+		<%= render partial: "events/new" %>
+	</div>
+</li>
+
+
 <section class="reccurring">
 	<h1 class="medium-title">
 		Weekly Events
@@ -73,3 +82,36 @@
 		</div>
 	<% end %>
 </section>
+
+<%#= form_for(@comment, remote: true, html: {id: "comment-form"}) do |f| %>
+  <%#= f.label :text, "Write a new comment..." %><br>
+  <%#= f.text_area :text %><br>
+  <%#= f.submit %>
+<%# end %>
+
+<script>
+$(document).ready(function () {
+	$("#create-event-button").on("ajax:success", function () {
+		preventDefault();
+		console.log("done");
+	});
+	
+	$("#event-form").find('input[type="submit"]').on(
+	    "click",
+	    function (event) {
+	      event.preventDefault();
+
+	      var formData = $(this.form).serialize();
+				
+	      $.ajax({
+	        url: "/",
+	        type: "POST",
+	        data: formData,
+	        success: function () {
+	          console.log("Your callback here!");
+	        }
+	      });
+	    }
+	  );
+});
+</script>
