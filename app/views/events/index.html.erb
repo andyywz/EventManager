@@ -83,35 +83,34 @@
 	<% end %>
 </section>
 
-<%#= form_for(@comment, remote: true, html: {id: "comment-form"}) do |f| %>
-  <%#= f.label :text, "Write a new comment..." %><br>
-  <%#= f.text_area :text %><br>
-  <%#= f.submit %>
-<%# end %>
-
 <script>
-$(document).ready(function () {
-	$("#create-event-button").on("ajax:success", function () {
-		preventDefault();
-		console.log("done");
-	});
-	
+$(document).ready(function () {	
 	$("#event-form").find('input[type="submit"]').on(
-	    "click",
-	    function (event) {
-	      event.preventDefault();
-
-	      var formData = $(this.form).serialize();
-				
-	      $.ajax({
-	        url: "/",
-	        type: "POST",
-	        data: formData,
-	        success: function () {
-	          console.log("Your callback here!");
-	        }
-	      });
-	    }
-	  );
+		"click",
+		function (event) {
+		  event.preventDefault();
+	
+		  var formData = $(this.form).serialize();
+	
+			var time = $(this.form).find("#occurrence_time").val();
+			var date = $(this.form).find("#occurrence_time").val();
+	
+			if (time !== "" && date !== "") {
+		    $.ajax({
+		      url: "/events.json",
+		      type: "POST",
+		      data: formData,
+		      success: function (somedata) {
+		        console.log(somedata);
+		      }
+		    });
+			} else {
+				console.log("You missed a field")
+			};
+		}
+	);
+	
+	
+		
 });
 </script>

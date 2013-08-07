@@ -23,16 +23,24 @@ class EventsController < ApplicationController
     params[:event][:user_id] = current_user.id
     @event = Event.create(params[:event])
     
-    d = params[:occurrence][:date]
-    t = params[:occurrence][:time]
-    time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
+    d = DateTime.parse(params[:occurrence][:date])
+    t = DateTime.parse(params[:occurrence][:time])
     
-    if @event.reccurring
-      52.times do |i|
-        @event.occurrences.create({ :event_time => time + i.weeks })
+    if d && t
+      time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec )
+    
+      if @event.reccurring
+        52.times do |i|
+          @event.occurrences.create({ :event_time => time + i.weeks })
+        end
+      else
+        @event.occurrences.create({ :event_time => time })
       end
-    else
-      @event.occurrences.create({ :event_time => time })
+    
+      respond_to do |format|
+        format.html { redirect_to events_url }
+        format.json { render :json => @event }
+      end
     end
   end
   
