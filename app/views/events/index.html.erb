@@ -2,28 +2,74 @@
 	This Week in Swing NYC - <%= DateTime.now.strftime('%b %d %Y') %>
 </h1>
 
-<section class="recurring">
+<section class="reccurring">
 	<h1 class="medium-title">
 		Weekly Events
 	</h1>
-<% @reccurring_events.each do |o| %>
-	<h2><%= o.event.name %></h2>
-	<time>
-		<%= o.event_time.strftime('%a') %>
-		<%= o.event_time.strftime('%I:%M %p') %>
-	</time>
-<% end %>
+	
+	<% @reccurring_events.each do |o| %>
+		<h2 class="event-name">
+			<%= o.event.name %> --- 
+				<time>
+					<%= o.event_time.strftime('%a') %>
+					<%= o.event_time.strftime('%I:%M %p') %>
+				</time>
+		</h2>
+
+		<div class="event-content hide">
+			
+			<label>Venue: <%= o.event.place %></label>
+			
+			<label>Cover: <%= o.event.cover %></label>
+
+			<label>Age Limit: <%= o.event.age_limit %></label>
+
+			<label>Music: <%= o.event.music %></label>
+
+			<label>Floor: <%= o.event.floor %></label>
+
+			<label>ETC: 
+				<div class="etc">
+					<%= o.event.body %>
+				</div>
+			</label>
+
+		</div>
+	<% end %>
+	
 </section>
 
 <section class="special">
 	<h1 class="medium-title">
 		Special Events
 	</h1>
-<% @events.each do |o| %>
-	<h2><%= o.event.name %></h2>
-	<time>
-		<%= o.event_time.strftime('%a %b %d %Y') %>
-		<%= o.event_time.strftime('%I:%M %p') %>
-	</time>
-<% end %>
+	<% @events.each do |o| %>
+		<h2 class="event-name">
+			<%= o.event.name %> --- 
+				<time>
+					<%= o.event_time.strftime('%a') %>
+					<%= o.event_time.strftime('%I:%M %p') %>
+				</time>
+		</h2>
+		
+		<div class="event-content hide">
+		
+			<label>Venue: <%= o.event.place %></label>
+		
+			<label>Cover: <%= o.event.cover %></label>
+
+			<label>Age Limit: <%= o.event.age_limit %></label>
+
+			<label>Music: <%= o.event.music %></label>
+
+			<label>Floor: <%= o.event.floor %></label>
+
+			<label>ETC: 
+				<div class="etc">
+					<%= o.event.body %>
+				</div>
+			</label>
+
+		</div>
+	<% end %>
 </section>

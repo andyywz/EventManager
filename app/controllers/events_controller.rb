@@ -6,13 +6,12 @@ class EventsController < ApplicationController
     @events = []
     
     Occurrence.all.each do |o|
-      if o.event.reccurring == true && o.event_time.between?(DateTime.now, DateTime.now + 1.week)
+      if o.event.reccurring == true && o.event_time.between?(DateTime.now, DateTime.now + 1.weeks)
         @reccurring_events << o
       elsif o.event.reccurring != true
         @events << o
       end
     end
-    
   end
   
   def show

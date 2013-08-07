@@ -1,7 +1,7 @@
 /* --- RESET --- */
 
 html, body, header, footer, section, article, div, 
-strong, a, img, p, h1, h2, h3, time, ul, li, small, label {
+strong, a, img, p, h1, h2, h3, time, ul, li, small, label, i {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -35,6 +35,14 @@ strong {
 }
 
 img {
+}
+
+label {
+	display: block;
+}
+
+i {
+	display: block;
 }
 
 .alert {
