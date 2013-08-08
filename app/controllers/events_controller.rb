@@ -26,13 +26,11 @@ class EventsController < ApplicationController
     d = DateTime.parse(params[:occurrence][:date])
     t = DateTime.parse(params[:occurrence][:time])
     
-    if d && t && d >= Date.today
-      p d
-      p d >= Date.today
+    if d && t && d >= DateTime.now.utc.to_date
       time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
       params[:event][:user_id] = current_user.id
       @event = Event.create(params[:event])
-      
+      p time
       if @event.reccurring
         52.times do |i|
           @event.occurrences.create({ :event_time => time + i.weeks })
@@ -48,7 +46,7 @@ class EventsController < ApplicationController
       end
       
       format.json do
-        if d >= Date.today
+        if d >= DateTime.now.utc.to_date
           render :json => @event
         else
           flash.now[:alert] = "Study harder!!"

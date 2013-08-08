@@ -11,14 +11,14 @@ class Occurrence < ActiveRecord::Base
   end
   
   def in_the_future
-    if self.event_time < DateTime.now
+    if self.event_time < DateTime.now.utc.to_date
       errors[:base] << "Not in the future! We don't care about past events!"      
     end
   end
   
   def round_time(event_time, seconds = 60)
     date = event_time.to_date
-    time = Time.at((event_time.to_time.to_f / seconds).round * seconds)
+    time = Time.at((event_time.to_time.to_f / seconds).round * seconds).utc
     create_datetime(date, time)
   end
   

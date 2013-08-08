@@ -4,7 +4,7 @@
 			<%= o.event.name %>
 		</h2>
 		<time data-datestamp="<%= o.event_time.to_i %>" class="event-time">
-			<%= o.event_time.strftime('%a %d %b %Y') %>
+			<%= o.event_time.strftime('%a %b %d %Y') %>
 			<%= o.event_time.strftime('%I:%M %p') %>
 		</time>
 	</div>
@@ -49,29 +49,28 @@ var prependData = "<li class='event'>
 			" + eventData['name'] + "
 		</h2>
 		<time class='event-time'>
-			" + $(newthat.form).find("#occurrence_date").val() + "
-			<br>
-			" + $(newthat.form).find("#occurrence_time").val() + "
+			" + dateString + "
 		</time>
 	</div>
 
 	<div class='event-content hide'>
 
-		<label>Venue: <%= o.event.place %></label>
+		<label>Venue: "+ eventData['place'] +"</label>
 
-		<label>Cover: <%= o.event.cover %></label>
+		<label>Cover: "+ eventData['cover'] +"</label>
 
-		<label>Age Limit: <%= o.event.age_limit %></label>
+		<label>Age Limit: "+ eventData['age_limit'] +"</label>
 
-		<label>Music: <%= o.event.music %></label>
+		<label>Music: "+ eventData['music'] +"</label>
 
-		<label>Floor: <%= o.event.floor %></label>
+		<label>Floor: "+ eventData['floor'] +"</label>
 
 		<label>ETC: 
 			<div class='etc'>
-				<%= o.event.body %>
+				"+ eventData['body'] +"
 			</div>
 		</label>
 
 	</div>
-</li>" -->
+</li>"
+ -->
