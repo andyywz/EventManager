@@ -39,7 +39,7 @@ $(document).ready(function () {
 		"click",
 		function (event) {
 		  event.preventDefault();
-	
+			var that = this;
 		  var formData = $(this.form).serialize();
 	
 			var time = $(this.form).find("#occurrence_time").val();
@@ -51,29 +51,47 @@ $(document).ready(function () {
 		      type: "POST",
 		      data: formData,
 		      success: function (eventData) {
+						temp = eventData;
+						newthat = that;
+						data = formData;
 						if (eventData["reccurring"] == true) {
 							console.log("passed")
+							$('.new-event').slideToggle();
+							$('.new-event').toggleClass("hide");
 							
 							$(".reccurring .event-time").each(function (index, domEl) {
 								var datetime = $(domEl).html().trim().split(/\s+/);
 								var domDate = new Date(datetime.join(" "));
+								
+								$(this).prepend()
+								
 							});
 								
-						} else {
-							console.log("failed");
+						} else if (eventData["special"] == true) {
+							console.log("passed special");
+							$('.new-event').slideToggle();
+							$('.new-event').toggleClass("hide");
 							
-							temp = $(".reccurring .event-time").get();
+							temp = eventData
 							
 							$(".reccurring .event-time").each(function (index, domEl) {
 								var datetime = $(domEl).html().trim().split(/\s+/);
 								var domDate = new Date(datetime.join(" "));
+								
+								
 							});
 		
+						} else {
+							console.log("failed");
+	
+							$('.new-event').slideToggle();
+							$('.new-event').toggleClass("hide");
+							
 						};
 		      }
 		    });
 			} else {
-				console.log("You missed a field")
+				alert("You missed a field");
 			};
 		}
 	);
