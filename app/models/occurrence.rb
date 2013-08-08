@@ -4,9 +4,16 @@ class Occurrence < ActiveRecord::Base
   belongs_to :event
   has_many :attendings
   has_many :attending_users, through: :attendings, source: :user
+  validate :in_the_future
   
   before_save do
     self.event_time = round_time(self.event_time, 30.minutes)
+  end
+  
+  def in_the_future
+    if self.event_time < DateTime.now
+      errors[:base] << "Not in the future! We don't care about past events!"      
+    end
   end
   
   def round_time(event_time, seconds = 60)
