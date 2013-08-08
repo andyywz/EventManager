@@ -6,7 +6,7 @@
 	<a id="new-event-button" href="#">New Event</a>
 	
 	<div class="new-event hide">
-		<%= render partial: "events/new" %>
+		<%= render partial: "new" %>
 	</div>
 </li>
 
@@ -16,36 +16,11 @@
 		Weekly Events
 	</h1>
 	
+	<ul class="events">
 	<% @reccurring_events.each do |o| %>
-		<h2 class="event-name">
-			<%= o.event.name %> --- 
-				<time class="event-time">
-					<%= o.event_time.strftime('%a') %>
-					<%= o.event_time.strftime('%I:%M %p') %>
-				</time>
-		</h2>
-
-		<div class="event-content hide">
-			
-			<label>Venue: <%= o.event.place %></label>
-			
-			<label>Cover: <%= o.event.cover %></label>
-
-			<label>Age Limit: <%= o.event.age_limit %></label>
-
-			<label>Music: <%= o.event.music %></label>
-
-			<label>Floor: <%= o.event.floor %></label>
-
-			<label>ETC: 
-				<div class="etc">
-					<%= o.event.body %>
-				</div>
-			</label>
-
-		</div>
+		<%= render partial: "single_event", locals: {:o => o} %>
 	<% end %>
-	
+	</ul>
 </section>
 
 <section class="special">
@@ -53,33 +28,7 @@
 		Special Events
 	</h1>
 	<% @events.each do |o| %>
-		<h2 class="event-name">
-			<%= o.event.name %> --- 
-				<time class="event-time">
-					<%= o.event_time.strftime('%a') %>
-					<%= o.event_time.strftime('%I:%M %p') %>
-				</time>
-		</h2>
-		
-		<div class="event-content hide">
-		
-			<label>Venue: <%= o.event.place %></label>
-		
-			<label>Cover: <%= o.event.cover %></label>
-
-			<label>Age Limit: <%= o.event.age_limit %></label>
-
-			<label>Music: <%= o.event.music %></label>
-
-			<label>Floor: <%= o.event.floor %></label>
-
-			<label>ETC: 
-				<div class="etc">
-					<%= o.event.body %>
-				</div>
-			</label>
-
-		</div>
+		<%= render partial: "single_event", locals: {:o => o} %>
 	<% end %>
 </section>
 
@@ -103,18 +52,22 @@ $(document).ready(function () {
 		      data: formData,
 		      success: function (eventData) {
 						if (eventData["reccurring"] == true) {
+							console.log("passed")
 							
-							temp = $(".reccurring .event-time").get();
-								$(".reccurring .event-time").each(function (index, domEl) {
-									datetime = $(domEl).html().trim().split(/\s+/);
-								})
+							$(".reccurring .event-time").each(function (index, domEl) {
+								var datetime = $(domEl).html().trim().split(/\s+/);
+								var domDate = new Date(datetime.join(" "));
+							});
 								
 						} else {
+							console.log("failed");
 							
 							temp = $(".reccurring .event-time").get();
+							
 							$(".reccurring .event-time").each(function (index, domEl) {
-								datetime = $(domEl).html().trim().split(/\s+/);
-							})
+								var datetime = $(domEl).html().trim().split(/\s+/);
+								var domDate = new Date(datetime.join(" "));
+							});
 		
 						};
 		      }

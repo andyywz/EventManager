@@ -9,9 +9,9 @@ class EventsController < ApplicationController
     # Occurrence.all(:select => "*, event_time as coolness", :order => "coolness")
     
     Occurrence.order("event_time").each do |o|
-      if o.event.reccurring == true && o.event_time.between?(DateTime.now, DateTime.now + 1.weeks)
+      if o.event.reccurring == true && o.event_time.between?(Date.today, Date.today + 1.weeks)
         @reccurring_events << o
-      elsif o.event.reccurring != true
+      elsif o.event.reccurring != true && o.event_time >= Date.today
         @events << o
       end
     end
@@ -26,7 +26,9 @@ class EventsController < ApplicationController
     d = DateTime.parse(params[:occurrence][:date])
     t = DateTime.parse(params[:occurrence][:time])
     
-    if d && t && d.future?
+    if d && t && d >= Date.today
+      p d
+      p d >= Date.today
       time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
       params[:event][:user_id] = current_user.id
       @event = Event.create(params[:event])
@@ -38,16 +40,22 @@ class EventsController < ApplicationController
       else
         @event.occurrences.create({ :event_time => time })
       end
-      
-      # Fix this..
-      
-      respond_to do |format|
-        format.html { redirect_to events_url }
-        format.json { render :json => @event }
+    end
+    
+    respond_to do |format|
+      format.html do
+        redirect_to events_path
       end
-    else
-      flash[:alert] += "Study harder!!"
-      redirect_to events_path
+      
+      format.json do
+        if d >= Date.today
+          render :json => @event
+        else
+          flash.now[:alert] = "Study harder!!"
+          render :json => false
+        end
+      end
+      
     end
   end
   
