@@ -84,6 +84,7 @@
 </section>
 
 <script>
+
 $(document).ready(function () {	
 	$("#event-form").find('input[type="submit"]').on(
 		"click",
@@ -100,8 +101,16 @@ $(document).ready(function () {
 		      url: "/events.json",
 		      type: "POST",
 		      data: formData,
-		      success: function (somedata) {
-		        console.log(somedata);
+		      success: function (eventData) {
+						if (eventData["reccurring"] == true) {
+							$(".reccurring .event-name > time").each(function (index, domEl) {
+								datetime = domEl.html();
+							})
+						} else {
+							$(".reccurring .event-name > time").each(function (index, domEl) {
+								datetime = domEl.html();
+							})
+						};
 		      }
 		    });
 			} else {
@@ -109,8 +118,6 @@ $(document).ready(function () {
 			};
 		}
 	);
-	
-	
 		
 });
 </script>

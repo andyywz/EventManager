@@ -6,7 +6,9 @@ class EventsController < ApplicationController
     @reccurring_events = []
     @events = []
     
-    Occurrence.all.each do |o|
+    # Occurrence.all(:select => "*, event_time as coolness", :order => "coolness")
+    
+    Occurrence.order("event_time").each do |o|
       if o.event.reccurring == true && o.event_time.between?(DateTime.now, DateTime.now + 1.weeks)
         @reccurring_events << o
       elsif o.event.reccurring != true
@@ -16,7 +18,6 @@ class EventsController < ApplicationController
   end
   
   def show
-    
   end
   
   def create
@@ -27,7 +28,7 @@ class EventsController < ApplicationController
     t = DateTime.parse(params[:occurrence][:time])
     
     if d && t
-      time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec )
+      time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
     
       if @event.reccurring
         52.times do |i|
@@ -36,7 +37,7 @@ class EventsController < ApplicationController
       else
         @event.occurrences.create({ :event_time => time })
       end
-    
+      
       respond_to do |format|
         format.html { redirect_to events_url }
         format.json { render :json => @event }
