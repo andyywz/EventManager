@@ -19,7 +19,7 @@
 	<% @reccurring_events.each do |o| %>
 		<h2 class="event-name">
 			<%= o.event.name %> --- 
-				<time>
+				<time class="event-time">
 					<%= o.event_time.strftime('%a') %>
 					<%= o.event_time.strftime('%I:%M %p') %>
 				</time>
@@ -55,7 +55,7 @@
 	<% @events.each do |o| %>
 		<h2 class="event-name">
 			<%= o.event.name %> --- 
-				<time>
+				<time class="event-time">
 					<%= o.event_time.strftime('%a') %>
 					<%= o.event_time.strftime('%I:%M %p') %>
 				</time>
@@ -103,13 +103,19 @@ $(document).ready(function () {
 		      data: formData,
 		      success: function (eventData) {
 						if (eventData["reccurring"] == true) {
-							$(".reccurring .event-name > time").each(function (index, domEl) {
-								datetime = domEl.html();
-							})
+							
+							temp = $(".reccurring .event-time").get();
+								$(".reccurring .event-time").each(function (index, domEl) {
+									datetime = $(domEl).html().trim().split(/\s+/);
+								})
+								
 						} else {
-							$(".reccurring .event-name > time").each(function (index, domEl) {
-								datetime = domEl.html();
+							
+							temp = $(".reccurring .event-time").get();
+							$(".reccurring .event-time").each(function (index, domEl) {
+								datetime = $(domEl).html().trim().split(/\s+/);
 							})
+		
 						};
 		      }
 		    });
