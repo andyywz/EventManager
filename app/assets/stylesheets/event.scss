@@ -14,7 +14,7 @@
 	max-width: 600px;
 	width: auto;
 	padding: 20px;
-  background: rgba(16, 46, 55, 0.7);
+  background: rgba(16, 46, 55, 0.8);
 	color: white;
 	border: 1px;
 	border-radius: 12px;
@@ -31,7 +31,7 @@
 }
 
 .event-title {
-	/*padding-left: 15px;*/
+	width: auto;
 	font-size: 18px;
 	font-weight: 300;
 	cursor: pointer;
@@ -40,7 +40,8 @@
 
 .event-name {
 	float: left;
-	padding-left: 15px;
+	margin-left: 15px;
+	width: auto;
 }
 
 .event-time {
@@ -60,9 +61,10 @@
 }
 
 .event-content {
-	margin: 0 20px;
-	color: white;
+	margin: 0 0 10px 20px;
+	color: rgba(255, 255, 255, 0.7);
 	font-size: 15px;
+	border-bottom: 5px solid rgba(144, 202, 119, 0.8);
 }
 
 .event-content > label {
@@ -70,7 +72,7 @@
 }
 
 .event-content .etc {
-	/* DO MORE CSS HERE */
+	color: rgba(255, 255, 255, 0.7);
+	margin-bottom: 8px;
 	padding: 2px 20px;
-	color: white;
 }
