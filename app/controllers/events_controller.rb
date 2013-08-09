@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   
   def index
     @event = Event.new
-    @recurring_events, @events = sort_events
+    @recurring_events, @events = sort_events[0], sort_events[1]
   end
   
   def show
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
     
     
     if request.xhr?
-      recurring_events, events = sort_events
+      recurring_events, events = sort_events[0], sort_events[1]
       
       render partial: "events", locals: {recurring: recurring_events, special: events}
       
