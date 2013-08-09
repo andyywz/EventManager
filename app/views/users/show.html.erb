@@ -10,17 +10,16 @@
 			<%= button_to "Edit", edit_user_registration_url, method: "get" %>
 		<% end %>
     <p>
-      <strong>Born</strong> April 6, 1898<br>
-      <strong>City</strong> Meaux, France
+      <strong>[ username ] </strong><%= @user.username %><br>
+      <strong>[ email ] </strong> <%= @user.email %> 
     </p>
   </div>
   
   <!-- <nav class="profile-nav">
     <ul>
-      <li><a href="#">Wall</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="#">Events Created</a></li>
+      <li><a href="#">Attending Events</a></li>
       <li><a href="#">Friends</a></li>
-      <li><a href="#">Photos</a></li>
     </ul>
   </nav> -->
   
@@ -28,7 +27,7 @@
 <section class="content-main">
   
   <header class="content-header">
-    <h1><%= @user.fname %>'s Events</h1>
+    <h1><%= @user.username %></h1>
   </header>
   
   <div class="posts">
@@ -41,7 +40,7 @@
         </div>
     
         <div class="post-info">
-          <h3><a href="#"><%= @user.fname + " " + @user.lname %></a></h3>
+          <h3><a href="#"><%= @user.username %></a></h3>
           <time>3 hours ago</time>
         </div>
     

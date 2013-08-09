@@ -61,10 +61,11 @@
 }
 
 .profile-info {
-	padding: 0 20px;
+	padding-left: 20px;
 }
 
 .profile-info h2 {
+	text-transform: capitalize;
 	font-size: 24px;
 	font-weight: bold;
 }
@@ -131,7 +132,6 @@
 }
 
 .post-info h3 {
-	font-weight: bold;
 }
 
 .post-info time {
