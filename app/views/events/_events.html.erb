@@ -1,22 +1,20 @@
-<section class="all-events">
-	<section class="recurring">
-		<h1 class="medium-title">
-			Regular Events
-		</h1>
-	
-		<ul class="events">
-		<% recurring.each do |o| %>
-			<%= render partial: "single_event", locals: {:o => o} %>
-		<% end %>
-		</ul>
-	</section>
+<section class="recurring">
+	<h1 class="medium-title">
+		Regular Events
+	</h1>
 
-	<section class="special">
-		<h1 class="medium-title">
-			Special Events
-		</h1>
-		<% special.each do |o| %>
-			<%= render partial: "single_event", locals: {:o => o} %>
-		<% end %>
-	</section>
+	<ul class="events">
+	<% recurring.each do |o| %>
+		<%= render partial: "single_event", locals: {:o => o} %>
+	<% end %>
+	</ul>
+</section>
+
+<section class="special">
+	<h1 class="medium-title">
+		Special Events
+	</h1>
+	<% special.each do |o| %>
+		<%= render partial: "single_event", locals: {:o => o} %>
+	<% end %>
 </section>
