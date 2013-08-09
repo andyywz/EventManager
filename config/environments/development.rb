@@ -36,5 +36,14 @@ EventManager::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => "event_manager_development",
+      :access_key_id => ENV["BUCKET_ACCESS_KEY_ID"],
+      :secret_access_key => ENV["BUCKET_SECRET_ACCESS_KEY"]
+    }
+  }
+  
   Paperclip.options[:command_path] = "/opt/local/bin"
 end
