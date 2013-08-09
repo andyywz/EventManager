@@ -38,20 +38,22 @@ class EventsController < ApplicationController
       end
     end
     
-    respond_to do |format|
-      format.html do
-        redirect_to events_path
-      end
-      
-      format.json do
-        if d >= DateTime.now.utc.to_date
-          render :json => @event
-        else
-          flash.now[:alert] = "Study harder!!"
-          render :json => false
+    
+    if request.xhr?
+      recurring_events = []
+      events = []
+      Occurrence.order("event_time").each do |o|
+        if o.event.recurring == true && o.event_time.between?(Date.today, Date.today + 1.weeks)
+          recurring_events << o
+        elsif o.event.recurring != true && o.event_time >= Date.today
+          events << o
         end
       end
       
+      render partial: "events", locals: {recurring: recurring_events, special: events}
+      
+    else
+      redirect_to events_url
     end
   end
   
