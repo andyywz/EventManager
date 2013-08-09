@@ -14,14 +14,11 @@ $(document).ready(function () {
 		      url: "/events.json",
 		      type: "POST",
 		      data: formData,
-		      success: function (eventData) {						
-						if (eventData["reccurring"] == true) {
+		      success: function (eventData) {		
+						if (eventData["recurring"] == true) {
 							console.log("passed")
 							
-							$('.new-event').slideToggle();
-							$('.new-event').toggleClass("hide");
-							
-							$(".reccurring .event").each(function (index, domEl) {
+							$(".recurring .event").each(function (index, domEl) {
 								
 								var date = $(that.form).find("#occurrence_date").val();
 								var time = $(that.form).find("#occurrence_time").val();
@@ -55,10 +52,6 @@ $(document).ready(function () {
                                                                                 \
 											<label>Age Limit: "+ eventData['age_limit'] +"</label>    \
                                                                                 \
-											<label>Music: "+ eventData['music'] +"</label>            \
-                                                                                \
-											<label>Floor: "+ eventData['floor'] +"</label>            \
-                                                                                \
 											<label>ETC:                                               \
 												<div class='etc'>                                       \
 													"+ eventData['body'] +"                               \
@@ -69,6 +62,10 @@ $(document).ready(function () {
 									</li>";
 									
 									$(domEl).before(prependData);
+									$('#event-form').find("input, textarea").val("");
+									$('#event-form').find("input[type='submit']").val("Create Event");
+									$('.new-event').slideToggle;
+									$('.new-event').toggleClass("hide");
 									return false;
 								};
 								
@@ -111,10 +108,6 @@ $(document).ready(function () {
                                                                                 \
 											<label>Age Limit: "+ eventData['age_limit'] +"</label>    \
                                                                                 \
-											<label>Music: "+ eventData['music'] +"</label>            \
-                                                                                \
-											<label>Floor: "+ eventData['floor'] +"</label>            \
-                                                                                \
 											<label>ETC:                                               \
 												<div class='etc'>                                       \
 													"+ eventData['body'] +"                               \
@@ -125,7 +118,11 @@ $(document).ready(function () {
 									</li>";
 									
 									$(domEl).before(prependData);
-									
+									$('#event-form').find("input, textarea").val("");
+									$('#event-form').find("input[type='submit']").val("Create Event");
+									$('.new-event').slideToggle;
+									$('.new-event').toggleClass("hide");
+
 									return false;
 								};
 								

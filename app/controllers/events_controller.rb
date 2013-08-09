@@ -3,15 +3,13 @@ class EventsController < ApplicationController
   
   def index
     @event = Event.new
-    @reccurring_events = []
+    @recurring_events = []
     @events = []
     
-    # Occurrence.all(:select => "*, event_time as coolness", :order => "coolness")
-    
     Occurrence.order("event_time").each do |o|
-      if o.event.reccurring == true && o.event_time.between?(Date.today, Date.today + 1.weeks)
-        @reccurring_events << o
-      elsif o.event.reccurring != true && o.event_time >= Date.today
+      if o.event.recurring == true && o.event_time.between?(Date.today, Date.today + 1.weeks)
+        @recurring_events << o
+      elsif o.event.recurring != true && o.event_time >= Date.today
         @events << o
       end
     end
@@ -31,7 +29,7 @@ class EventsController < ApplicationController
       params[:event][:user_id] = current_user.id
       @event = Event.create(params[:event])
       p time
-      if @event.reccurring
+      if @event.recurring
         52.times do |i|
           @event.occurrences.create({ :event_time => time + i.weeks })
         end

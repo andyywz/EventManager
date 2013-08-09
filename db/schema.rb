@@ -25,9 +25,7 @@ ActiveRecord::Schema.define(:version => 20130806205141) do
     t.integer  "cover"
     t.string   "place"
     t.integer  "age_limit"
-    t.string   "music"
-    t.boolean  "reccurring"
-    t.string   "floor"
+    t.boolean  "recurring"
     t.text     "body"
     t.integer  "user_id"
     t.datetime "created_at", :null => false

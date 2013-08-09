@@ -5,9 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.integer :cover
       t.string  :place
       t.integer :age_limit
-      t.string  :music
-      t.boolean :reccurring
-      t.string  :floor
+      t.boolean :recurring
       t.text    :body
       t.integer :user_id
       

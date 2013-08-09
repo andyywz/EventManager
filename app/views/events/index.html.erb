@@ -12,13 +12,13 @@
 </li>
 <% end %>
 
-<section class="reccurring">
+<section class="recurring">
 	<h1 class="medium-title">
 		Regular Events
 	</h1>
 	
 	<ul class="events">
-	<% @reccurring_events.each do |o| %>
+	<% @recurring_events.each do |o| %>
 		<%= render partial: "single_event", locals: {:o => o} %>
 	<% end %>
 	</ul>

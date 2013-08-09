@@ -25,9 +25,7 @@ u1.events.create({
   :cover => 8,
   :place => "Swing 46", 
   :age_limit => 21, 
-  :music => "Band",
-  :reccurring => true, 
-  :floor => "Hardwood", 
+  :recurring => true, 
   :body => ""
 })
 
@@ -35,9 +33,7 @@ u2.events.create({
   :name => "Professor Cunningham and his Old School",
   :place => "Radegast Hall, Brooklyn", 
   :age_limit => 21, 
-  :music => "Band", 
-  :reccurring => false, 
-  :floor => "Hardwood", 
+  :recurring => false, 
   :body => "radegasthall.com" 
 })
 
@@ -45,27 +41,21 @@ u2.events.create({
   :name => "Grand Street Stompers",
   :place => "Radegast Hall, Brooklyn", 
   :age_limit => 21, 
-  :music => "Band", 
-  :reccurring => false, 
-  :floor => "Hardwood", 
+  :recurring => false, 
   :body => "radegasthall.com" 
 })
 
 u2.events.create({
   :name => "Hudson River Park's Sunset on the Hudson", 
   :place => "Pier 45 in Greenwich Village", 
-  :music => "Baby Sode Jazz Band", 
-  :reccurring => false, 
-  :floor => "Pier", 
+  :recurring => false, 
   :body => "Friday nights mean great local music on Pier 45!"
 })
 
 u2.events.create({
   :name => "Rockaway Dance Party", 
   :place => "Caracas Rockaway at 106th Street", 
-  :music => "Gordon Au's Grand Street Stompers and DJ VaVaVoon", 
-  :reccurring => false, 
-  :floor => "Hardwood", 
+  :recurring => false, 
   :body => "Getting there - $2.25 subway fare and approximately a one hour trip to Beach 106th St Rockaway plus a two minute walk. Alternatively Rockabus for a back to school bus experience. Go to rockabus.com A special dancers bus to be announced soon. NAUTICAL DRESS ENCOURAGED"
 })
 
