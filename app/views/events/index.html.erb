@@ -12,4 +12,4 @@
 </li>
 <% end %>
 
-<%= render partial: "events" %>
+<%= render partial: "events", locals: {recurring: @recurring_events, special: @events} %>

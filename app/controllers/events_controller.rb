@@ -3,16 +3,7 @@ class EventsController < ApplicationController
   
   def index
     @event = Event.new
-    @recurring_events = []
-    @events = []
-    
-    Occurrence.order("event_time").each do |o|
-      if o.event.recurring == true && o.event_time.between?(Date.today, Date.today + 1.weeks)
-        @recurring_events << o
-      elsif o.event.recurring != true && o.event_time >= Date.today
-        @events << o
-      end
-    end
+    @recurring_events, @events = sort_events
   end
   
   def show
@@ -40,15 +31,7 @@ class EventsController < ApplicationController
     
     
     if request.xhr?
-      recurring_events = []
-      events = []
-      Occurrence.order("event_time").each do |o|
-        if o.event.recurring == true && o.event_time.between?(Date.today, Date.today + 1.weeks)
-          recurring_events << o
-        elsif o.event.recurring != true && o.event_time >= Date.today
-          events << o
-        end
-      end
+      recurring_events, events = sort_events
       
       render partial: "events", locals: {recurring: recurring_events, special: events}
       
@@ -67,5 +50,21 @@ class EventsController < ApplicationController
   
   def destroy
     
+  end
+  
+  private
+  
+  def sort_events
+    recurring_events = [];
+    events = [];
+    Occurrence.order("event_time").each do |o|
+      if o.event.recurring == true && o.event_time.between?(Date.today, Date.today + 1.weeks)
+        recurring_events << o
+      elsif o.event.recurring != true && o.event_time >= Date.today
+        events << o
+      end
+    end
+    
+    [recurring_events, events]
   end
 end
