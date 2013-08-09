@@ -1,10 +1,3 @@
-// var createDatestamp = function (date, time) {
-// 	
-// 	
-// 	var dateTime = date + "T" + newtime;
-// 	var timeStamp = Date.parse(dateTime);
-// }
-
 $(document).ready(function () {	
 	$("#event-form").find('input[type="submit"]').on(
 		"click",
@@ -32,6 +25,7 @@ $(document).ready(function () {
 								
 								var date = $(that.form).find("#occurrence_date").val();
 								var time = $(that.form).find("#occurrence_time").val();
+								
 								var dateTime = date + "T" + time;
 								var timeStamp = Date.parse(dateTime);
 								

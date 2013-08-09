@@ -72,11 +72,11 @@ u2.events.create({
 e1 = u1.events.first
 
 time = [
-  DateTime.new(2013, 8, 6, 20, 0, 0, '-4'),
-  DateTime.new(2013, 8, 7, 21, 14, 0, '-4'),
-  DateTime.new(2013, 8, 7, 21, 14, 0, '-4') + 5.days,
-  DateTime.new(2013, 8, 9, 18, 45, 0, '-4'),
-  DateTime.new(2013, 8, 10, 19, 5, 0, '-4')
+  DateTime.new(2013, 8, 6, 20, 0, 0, '0'),
+  DateTime.new(2013, 8, 7, 21, 0, 0, '0'),
+  DateTime.new(2013, 8, 7, 21, 0, 0, '0') + 5.days,
+  DateTime.new(2013, 8, 9, 18, 45, 0, '0'),
+  DateTime.new(2013, 8, 10, 19, 30, 0, '0')
 ]
 
 # times [8pm, 9pm, 7pm, 7pm]

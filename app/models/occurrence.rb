@@ -6,9 +6,9 @@ class Occurrence < ActiveRecord::Base
   has_many :attending_users, through: :attendings, source: :user
   validate :in_the_future
   
-  before_save do
-    self.event_time = round_time(self.event_time, 30.minutes)
-  end
+  # before_save do
+  #   self.event_time = round_time(self.event_time, 30.minutes)
+  # end
   
   def in_the_future
     if self.event_time < DateTime.now.utc.to_date
