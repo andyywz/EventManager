@@ -41,7 +41,7 @@
 }
 
 .profile-picture > a {
-	border: 5px solid #00f;
+	border: 5px solid rgba(82, 117, 120, 1);
 	display: block;
 }
 
@@ -79,11 +79,11 @@
 }
 
 .profile-nav > ul {
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid rgba(71, 66, 63, 1);
 }
 
 .profile-nav > ul > li {
-	border-top: 1px solid #ccc;
+	border-top: 1px solid rgba(71, 66, 63, 1);
 }
 
 .profile-nav > ul > li > a {
@@ -116,7 +116,7 @@
 
 .post-thumb > a {
 	display: block;
-	border: 3px solid #00f;
+	border: 3px solid rgba(132, 151, 143, 1);
 }
 
 .post-thumb > a > img {

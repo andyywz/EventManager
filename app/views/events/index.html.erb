@@ -2,6 +2,7 @@
 	This Week in Swing NYC - <%= DateTime.now.strftime('%b %d %Y') %>
 </h1>
 
+<% if user_signed_in? %>
 <li>
 	<a id="new-event-button" href="#">New Event</a>
 	
@@ -9,7 +10,7 @@
 		<%= render partial: "new" %>
 	</div>
 </li>
-
+<% end %>
 
 <section class="reccurring">
 	<h1 class="medium-title">
