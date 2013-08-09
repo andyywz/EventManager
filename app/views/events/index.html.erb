@@ -12,4 +12,6 @@
 </li>
 <% end %>
 
-<%= render partial: "events", locals: {recurring: @recurring_events, special: @events} %>
+<section class="all-events">
+	<%= render partial: "events", locals: {recurring: @recurring_events, special: @events} %>
+</section>

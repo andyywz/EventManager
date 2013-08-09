@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	$("#event-form").on("ajax:success", function (event, eventListData) {
-		$(".all-events").replaceWith(eventListData);
+		$(".all-events").html(eventListData);
 		$('#event-form').find("input, textarea").val("");
 		$('#event-form').find("input[type='submit']").val("Create Event");
 		$('#event-form').find("#event_recurring_true").val(true);
