@@ -2,7 +2,6 @@ u1 = User.new({
   username: "admin", 
   fname: "caleb", 
   lname: "mcgalen", 
-  kind: "admin", 
   email: "ay1164@messiah.edu"
 })
 
@@ -13,7 +12,6 @@ u2 = User.new({
   username: "andy", 
   fname: "Andy", 
   lname: "Yong", 
-  kind: "admin", 
   email: "andyywz@gmail.com"
 })
 

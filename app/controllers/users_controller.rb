@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @attending_events = @user.attending_events.where("event_time >= ?", Date.today).order("event_time")
   end
   
 end

@@ -7,6 +7,13 @@ class EventsController < ApplicationController
   end
   
   def show
+    @event = Event.find(params[:id])
+    
+    if request.xhr?
+      render partial: "show", locals: {event: @event}
+    else
+      redirect_to event_url(params[:id])
+    end
   end
   
   def create
@@ -32,9 +39,7 @@ class EventsController < ApplicationController
     
     if request.xhr?
       recurring_events, events = sort_events[0], sort_events[1]
-      
       render partial: "events", locals: {recurring: recurring_events, special: events}
-      
     else
       redirect_to events_url
     end
