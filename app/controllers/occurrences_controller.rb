@@ -7,7 +7,7 @@ class OccurrencesController < ApplicationController
     if request.xhr?
       render partial: "show", locals: { occurrence: @occurrence }
     else
-      redirect_to event_url(params[:id])
+      redirect_to events_url
     end
   end
 end

@@ -139,6 +139,38 @@
 	color: #999;
 }
 
-.post-text {
+.post-content {
 	padding-left: 80px;
+}
+
+.post > .event-title {
+}
+
+.post > .event-title > h2.event-name {
+	margin: 0;
+}
+
+.post > .event-content {
+	color: black;
+}
+
+.post > .event-content .etc {
+	color: black;
+}
+
+table {
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+th, td {
+	border: 1px solid black;
+	padding: 8px 20px;
+}
+
+th {
+	background: rgba(93, 200, 226, 0.7);
+}
+
+td {
 }

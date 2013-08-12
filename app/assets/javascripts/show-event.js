@@ -1,7 +1,5 @@
 $(document).ready(function () {
-	$("#event-show").on("ajax:success", function (event, json) {
-		$("article.post").html(eventListData);
-		$('.new-event').slideToggle();
-		$('.new-event').toggleClass("hide");
+	$(".occurrence-show").on("ajax:success", function (event, data) {
+		$("article.post").html(data);
 	});
 });

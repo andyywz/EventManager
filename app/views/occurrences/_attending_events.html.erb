@@ -1,0 +1,17 @@
+<table id="attending-events-table" class="events-table" border="0.5">
+	<% if attending_events.empty? %>
+    <%= @user == current_user ? "You are" : "#{@user.fname.capitalize} is" %> not attending any events...
+    
+  <% else %>
+    <tr>
+  		<th>Date</th>
+  		<th>Event</th>
+  	</tr>
+  	<% attending_events.each do |occurrence| %>
+  		<tr>
+  			<td><%= occurrence.event_time.strftime("%a - %b %d") %></td>
+  			<td><%= link_to occurrence.event.name, occurrence_path(occurrence.id), remote: :true, class: "occurrence-show" %></td>
+  		</tr>
+  	<% end %>
+  <% end %>
+</table>

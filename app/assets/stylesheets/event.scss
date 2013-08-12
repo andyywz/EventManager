@@ -61,7 +61,6 @@
 }
 
 .event-content {
-	margin: 0 0 10px 20px;
 	color: rgba(255, 255, 255, 0.7);
 	font-size: 15px;
 	border-bottom: 5px solid rgba(144, 202, 119, 0.8);
@@ -69,6 +68,7 @@
 
 .event-content > label {
 	display: block;
+	margin: 1px 0 1px 20px;
 }
 
 .event-content .etc {

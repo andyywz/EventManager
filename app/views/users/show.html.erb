@@ -32,8 +32,8 @@
   <div class="posts">
     
     <article class="post">
+			
       <header class="group">
-    
         <div class="post-thumb">
           <a href="#"><%= image_tag @user.avatar.url(:thumb) %></a>
         </div>
@@ -43,19 +43,12 @@
 						Events <%= @user == current_user ? "you are" : "#{@user.fname.capitalize} is" %> attending...
 					</h3>
         </div>
-    
       </header>
-      <div class="post-text">
-				<ul class="created-events">
-					<% @attending_events.each do |occurrence| %>
-						<li>
-							<%= link_to occurrence.event.name, occurrence_path(occurrence.id), remote: :true, html: {id: "occurrence-show"} %>
-							
-						</li>
-					<% end %>
-				</ul>
-				
+			
+      <div class="post-content">
+        <%= render partial: "occurrences/attending_events", locals: {attending_events: @attending_events} %>
       </div>
+      
     </article>
     
   </div>

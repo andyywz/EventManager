@@ -1,25 +1,33 @@
 <div class="event-title group">
 	<h2 class="event-name">
-		<%= @event.name %>
+		<%= @occurrence.event.name %>
 	</h2>
-	<time data-datestamp="<%= o.event_time.to_i %>" class="event-time">
-		<%= .event_time.strftime('%a %b %d %Y') %>
-		<%= o.event_time.strftime('%I:%M %p') %>
+	<time data-datestamp="<%= @occurrence.event_time.to_i %>" class="event-time">
+		<%= @occurrence.event_time.strftime('%a %b %d %Y') %>
+		<%= @occurrence.event_time.strftime('%I:%M %p') %>
 	</time>
 </div>
 
-<div class="event-content hide">
+<div class="event-content">
+	
+	<% if @occurrence.event.place %>
+		<label>Venue: <%= @occurrence.event.place %></label>
+	<% end %>
 
-	<label>Venue: <%= o.event.place %></label>
+	<% if @occurrence.event.cover %>
+		<label>Cover: <%= @occurrence.event.cover %></label>
+	<% end %>
+	
+	<% if @occurrence.event.age_limit %>
+		<label>Age Limit: <%= @occurrence.event.age_limit %></label>
+	<% end %>
 
-	<label>Cover: <%= o.event.cover %></label>
-
-	<label>Age Limit: <%= o.event.age_limit %></label>
-
-	<label>ETC: 
-		<div class="etc">
-			<%= o.event.body %>
-		</div>
-	</label>
-
+	<% if @occurrence.event.body %>
+		<label>ETC: 
+			<div class="etc">
+				<%= @occurrence.event.body %>
+			</div>
+		</label>
+	<% end %>
+	
 </div>
