@@ -1,5 +1,9 @@
 $(document).ready(function () {
-	$(".occurrence-show").on("ajax:success", function (event, data) {
+	$(".post-content").on("ajax:success", ".occurrence-show", function (event, data) {
 		$("article.post").html(data);
 	});
+	
+	$(".post-content").on("click", ".attending-events-button", function (event) {
+		$
+	})
 });

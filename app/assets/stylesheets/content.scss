@@ -96,6 +96,9 @@
 /* --- POSTS --- */
 
 .posts {
+	background: rgba(253, 240, 200, 0.5);
+	border: 1px dotted lightgray;
+	margin-top: 20px;
 }
 
 .post {
@@ -113,6 +116,7 @@
 .post-thumb {
 	float: left;
 	width: 60px;
+	margin-left: 20px;
 }
 
 .post-thumb > a {
@@ -160,16 +164,17 @@
 
 table {
 	border-collapse: collapse;
-	border: 1px solid black;
+/*	border: 1px solid black;*/
 }
 
 th, td {
-	border: 1px solid black;
-	padding: 8px 20px;
+/*	border: 1px solid black;*/
+	padding: 6px 20px;
 }
 
 th {
-	background: rgba(93, 200, 226, 0.7);
+	font-size: 16px;
+	color: darkred;
 }
 
 td {

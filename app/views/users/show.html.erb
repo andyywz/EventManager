@@ -16,9 +16,9 @@
   
   <nav class="profile-nav">
     <ul>
-      <li><a href="#">Attending Events</a></li>
-      <li><a href="#">Events Created</a></li>
-      <li><a href="#">Friends</a></li>
+      <li><a class="attending-events-button" href="#">Attending Events</a></li>
+      <li><a class="created-events-button" href="#">Created Events</a></li>
+      <li><a class="users-friends-button" href="#">Friends</a></li>
     </ul>
   </nav>
 </section>
@@ -31,24 +31,9 @@
   
   <div class="posts">
     
-    <article class="post">
-			
-      <header class="group">
-        <div class="post-thumb">
-          <a href="#"><%= image_tag @user.avatar.url(:thumb) %></a>
-        </div>
-    
-        <div class="post-info">
-          <h3>
-						Events <%= @user == current_user ? "you are" : "#{@user.fname.capitalize} is" %> attending...
-					</h3>
-        </div>
-      </header>
-			
-      <div class="post-content">
-        <%= render partial: "occurrences/attending_events", locals: {attending_events: @attending_events} %>
-      </div>
-      
+    <article class="post">  
+      <%= render partial: "occurrences/attending_events", locals: {user: @user, attending_events: @attending_events} %>
+      <%= render partial: "events/created_events", locals: {user: @user} %>
     </article>
     
   </div>

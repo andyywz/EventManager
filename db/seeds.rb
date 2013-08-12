@@ -1,7 +1,14 @@
+a1 = AdminUser.new({
+  email: "andyywz@gmail.com",
+  password: "test"
+})
+
+a1.save
+
 u1 = User.new({
-  username: "admin", 
-  fname: "caleb", 
-  lname: "mcgalen", 
+  username: "caleb", 
+  fname: "Caleb", 
+  lname: "McGalen", 
   email: "ay1164@messiah.edu"
 })
 
