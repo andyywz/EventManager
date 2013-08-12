@@ -6,12 +6,18 @@
 
 <div class="event-content">
   <label>Upcoming Dates:
-    <div class="upcoming">
-    <% @event.occurrences.each do |o| %>
-    <% next if o.event_time < Date.today %>
-        <%= link_to o.event_time.strftime('%a %b %d %Y %I:%M %p'), occurrence_path(o.id), remote: :true, class: "occurrence-show" %>
+    <% if @event.recurring %>
+      <div class="upcoming">
+        <% @event.occurrences.each do |o| %>
+        <% next if o.event_time < Date.today %>
+          <%= link_to o.event_time.strftime('%a %b %d %Y %I:%M %p'), occurrence_path(o.id), remote: :true, class: "occurrence-show" %>
+        <% end %>
+      </div>
+    <% else %>
+      <% puts "HELLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" %>
+      <% p @event %>
+      <%= link_to @event.occurrences.first.event_time.strftime('%a %b %d %Y %I:%M %p'), occurrence_path(@event.occurrences.id), remote: :true, class: "occurrence-show" %>
     <% end %>
-  </div>
   </label>
   
 	<% if @event.place %>

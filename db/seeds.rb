@@ -65,6 +65,7 @@ u2.events.create({
 })
 
 e1 = u1.events.first
+e2, e3, e4, e5 = u2.events[0], u2.events[1], u2.events[2], u2.events[3]
 
 time = [
   DateTime.new(2013, 8, 6, 20, 0, 0, '0'),
@@ -78,15 +79,25 @@ time = [
 
 52.times do |i|
   e1.occurrences.create({
-    :event_time => time[0] + i.weeks
+    :event_time => DateTime.new(2013, 8, 6, 20, 0, 0, '0') + i.weeks
   })
 end
 
-u2.events.each_with_index do |event, i|
-  event.occurrences.create({
-    :event_time => time[i + 1]
-  })
-end
+e2.occurrences.create({
+  :event_time => DateTime.new(2013, 8, 15, 21, 0, 0, '0')
+})
+
+e3.occurrences.create({
+  :event_time => DateTime.new(2013, 8, 12, 21, 0, 0, '0') + 5.days
+})
+
+e4.occurrences.create({
+  :event_time => DateTime.new(2013, 8, 21, 18, 45, 0, '0')
+})
+
+e5.occurrences.create({
+  :event_time => DateTime.new(2013, 8, 20, 19, 30, 0, '0')
+})
 
 Occurrence.all.each do |o|
   u_id = u1.id

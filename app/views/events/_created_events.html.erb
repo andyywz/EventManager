@@ -18,14 +18,26 @@
         <th>Venue</th>
         <th>Age Limit</th>
         <th>Type</th>
+        <% if user == current_user %>
+        <th>Action</th>
+        <% end %>
+        
     	</tr>
     	<% user.events.each do |event| %>
     		<tr>
     			<td class="event-name"><%= link_to event.name, event_path(event.id), remote: :true, class: "event-show" %></td>
-    			<td><%= event.cover %></td>
+    			<td><%= event.cover ? "$ #{event.cover}" : "-" %></td>
           <td><%= event.place %></td>
           <td><%= event.age_limit %></td>
           <td><%= event.recurring ? "Weekly" : "Special" %></td>
+          
+          <% if user == current_user %>
+          <td>
+          <button>Destroy</button>
+          <button>Edit</button>
+          </td>
+          <% end %>
+          
     		</tr>
     	<% end %>
     <% end %>
