@@ -2,16 +2,20 @@
 	<h2 class="event-name">
 		<%= @event.name %>
 	</h2>
-
-  <% @event.occurrences.each do |o| %>
-    <time data-datestamp="<%= o.event_time.to_i %>" class="event-time">
-		  <%= o.event_time.strftime('%a %b %d %Y') %>
-		  <%= o.event_time.strftime('%I:%M %p') %>
-	  </time>
-  <% end %>
 </div>
 
 <div class="event-content">
+  <% @event.occurrences.each do |o| %>
+  <!-- FORMAT THIS LATER!! -->
+  <ul>
+    <li>
+      <time data-datestamp="<%= o.event_time.to_i %>">
+  		  <%= o.event_time.strftime('%a %b %d') %>
+  		  <%= o.event_time.strftime('%I:%M %p') %>
+  	  </time>
+    </li>
+  </ul>
+  <% end %>
 	
 	<% if @event.place %>
 		<label>Venue: <%= @event.place %></label>
@@ -32,5 +36,5 @@
 			</div>
 		</label>
 	<% end %>
-	
+
 </div>
