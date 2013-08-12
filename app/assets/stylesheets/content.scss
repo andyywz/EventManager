@@ -113,7 +113,7 @@
 .post > header {
 }
 
-.post-thumb {
+/*.post-thumb {
 	float: left;
 	width: 60px;
 	margin-left: 20px;
@@ -128,7 +128,7 @@
 	display: block;
 	width: 100%;
 	height: auto;
-}
+}*/
 
 .post-info {
 	float: left;
@@ -144,7 +144,6 @@
 }
 
 .post-content {
-	padding-left: 80px;
 }
 
 .post > .event-title {
@@ -164,18 +163,23 @@
 
 table {
 	border-collapse: collapse;
-/*	border: 1px solid black;*/
+	margin: 5px 30px;
 }
 
 th, td {
-/*	border: 1px solid black;*/
-	padding: 6px 20px;
+	padding: 3px 3px;
 }
 
 th {
-	font-size: 16px;
+	font-size: 14px;
 	color: darkred;
+	border-bottom: 1px dashed lightgray;
 }
 
 td {
+	text-align: center;
+}
+
+td.event-name {
+	text-align: left;
 }

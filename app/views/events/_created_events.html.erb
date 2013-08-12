@@ -1,8 +1,4 @@
 <header class="group">
-  <div class="post-thumb">
-    <a href="#"><%= image_tag user.avatar.url(:thumb) %></a>
-  </div>
-
   <div class="post-info">
     <h3 class="created-title">
       Events <%= user == current_user ? "you" : "#{user.fname.capitalize}" %> created...
@@ -17,13 +13,19 @@
     
     <% else %>
       <tr>
-    		<th>Name</th>
-    		<th>Event</th>
+    		<th class="event-name">Name</th>
+    		<th>Cover</th>
+        <th>Venue</th>
+        <th>Age Limit</th>
+        <th>Type</th>
     	</tr>
     	<% user.events.each do |event| %>
     		<tr>
-    			<td><%= occurrence.event_time.strftime("%a - %b %d") %></td>
-    			<td><%= link_to occurrence.event.name, occurrence_path(occurrence.id), remote: :true, class: "occurrence-show" %></td>
+    			<td><%= link_to event.name, event_path(occurrence.id), remote: :true, class: "event-show" %></td>
+    			<td><%= event.cover %></td>
+          <td><%= event.place %></td>
+          <td><%= event.age_limit %></td>
+          <td><%= event.recurring ? "Weekly" : "Special" %></td>
     		</tr>
     	<% end %>
     <% end %>
