@@ -7,18 +7,10 @@ class EventsController < ApplicationController
   end
   
   def show
-    @event = Event.find(params[:id])
-    
-    if request.xhr?
-      render partial: "show", locals: {event: @event}
-    else
-      redirect_to event_url(params[:id])
-    end
   end
   
   def create
     # need to check to see if time is in the future
-    
     d = DateTime.parse(params[:occurrence][:date])
     t = DateTime.parse(params[:occurrence][:time])
     

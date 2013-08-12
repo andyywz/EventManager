@@ -16,8 +16,8 @@
   
   <nav class="profile-nav">
     <ul>
-      <li><a href="#">Events Created</a></li>
       <li><a href="#">Attending Events</a></li>
+      <li><a href="#">Events Created</a></li>
       <li><a href="#">Friends</a></li>
     </ul>
   </nav>
@@ -49,7 +49,8 @@
 				<ul class="created-events">
 					<% @attending_events.each do |occurrence| %>
 						<li>
-							<%= link_to occurrence.event.name, event_path(occurrence.event.id), remote: :true, html: {id: "event-show"} %>
+							<%= link_to occurrence.event.name, occurrence_path(occurrence.id), remote: :true, html: {id: "occurrence-show"} %>
+							
 						</li>
 					<% end %>
 				</ul>
@@ -60,20 +61,3 @@
   </div>
   
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
