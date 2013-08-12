@@ -13,7 +13,7 @@
     
     <% else %>
       <tr>
-    		<th class="event-name">Name</th>
+    		<th>Name</th>
     		<th>Cover</th>
         <th>Venue</th>
         <th>Age Limit</th>
@@ -21,7 +21,7 @@
     	</tr>
     	<% user.events.each do |event| %>
     		<tr>
-    			<td><%= link_to event.name, event_path(event.id), remote: :true, class: "event-show" %></td>
+    			<td class="event-name"><%= link_to event.name, event_path(event.id), remote: :true, class: "event-show" %></td>
     			<td><%= event.cover %></td>
           <td><%= event.place %></td>
           <td><%= event.age_limit %></td>
