@@ -5,18 +5,15 @@
 </div>
 
 <div class="event-content">
-  <% @event.occurrences.each do |o| %>
-  <!-- FORMAT THIS LATER!! -->
-  <ul>
-    <li>
-      <time data-datestamp="<%= o.event_time.to_i %>">
-  		  <%= o.event_time.strftime('%a %b %d') %>
-  		  <%= o.event_time.strftime('%I:%M %p') %>
-  	  </time>
-    </li>
-  </ul>
-  <% end %>
-	
+  <label>Upcoming Dates:
+    <div class="upcoming">
+    <% @event.occurrences.each do |o| %>
+    <% next if o.event_time < Date.today %>
+        <%= link_to o.event_time.strftime('%a %b %d %Y %I:%M %p'), occurrence_path(o.id), remote: :true, class: "occurrence-show" %>
+    <% end %>
+  </div>
+  </label>
+  
 	<% if @event.place %>
 		<label>Venue: <%= @event.place %></label>
 	<% end %>

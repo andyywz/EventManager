@@ -160,6 +160,16 @@
 	color: black;
 }
 
+.upcoming {
+	height: 100px;
+	overflow: scroll;
+}
+
+.event-content .upcoming > a {
+	display: block;
+	margin-left: 10px;
+}
+
 table {
 	border-collapse: collapse;
 	margin: 5px 30px;
