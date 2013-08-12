@@ -14,9 +14,7 @@
         <% end %>
       </div>
     <% else %>
-      <% puts "HELLO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" %>
-      <% p @event %>
-      <%= link_to @event.occurrences.first.event_time.strftime('%a %b %d %Y %I:%M %p'), occurrence_path(@event.occurrences.id), remote: :true, class: "occurrence-show" %>
+      <%= link_to @event.occurrences.first.event_time.strftime('%a %b %d %Y %I:%M %p'), occurrence_path(@event.occurrences.first.id), remote: :true, class: "occurrence-show" %>
     <% end %>
   </label>
   
