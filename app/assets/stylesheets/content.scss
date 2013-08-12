@@ -97,18 +97,17 @@
 
 .posts {
 	background: rgba(253, 240, 200, 0.5);
-	border: 1px dotted lightgray;
+/*	border: 1px dotted lightgray;*/
 	margin-top: 20px;
 }
 
 .post {
-	border-top: 1px solid #ccc;
 	padding: 20px 0;
 }
 
-.post:first-child {
+/*.post:first-child {
 	border-top: 0;
-}
+}*/
 
 .post > header {
 }

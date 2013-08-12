@@ -31,8 +31,11 @@
   
   <div class="posts">
     
-    <article class="post">  
+    <article class="post attending">  
       <%= render partial: "occurrences/attending_events", locals: {user: @user, attending_events: @attending_events} %>
+    </article>
+    
+    <article class="post created hide">
       <%= render partial: "events/created_events", locals: {user: @user} %>
     </article>
     
