@@ -99,8 +99,9 @@ e5.occurrences.create({
   :event_time => DateTime.new(2013, 8, 20, 19, 30, 0, '0')
 })
 
+u_id = u1.id
+
 Occurrence.all.each do |o|
-  u_id = u1.id
   Attending.create({
     :user_id => u_id,
     :occurrence_id => o.id
