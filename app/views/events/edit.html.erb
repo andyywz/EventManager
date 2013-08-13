@@ -14,20 +14,25 @@
   <%= f.label :body, "ETC: " %><br>
   <%= f.text_area :body, size: "80x4" %><br>
   
-  <%= f.fields_for :occurrences do |o| %>
-  
-  
-  <% end %>
-  
   <%= f.submit %>
 <% end %>
 
-<% @event %>
+<div class="occurrences-edit">
+  <ul class="occurrences-list">
+    <% @occurrences.each do |o| %>
+      <li class="group">
+        <label for="occurrence_date">Date: </label>
+        <input class="occurrence_date" name="occurrence[date]" type="date" value="<%= o.event_time.strftime('%Y-%m-%d') %>">
 
-<label for="occurrence_date">Date: </label><br>
-<input id="occurrence_date" name="occurrence[date]" type="date" value="">
-<br>
-
-<label for="occurrence_time">Time: </label>	<br>
-<input id="occurrence_time" name="occurrence[time]" type="time" value="22:00">
-<br>
+        <label for="occurrence_time">Time: </label>
+        <input class="occurrence_time" name="occurrence[time]" type="time" value="<%= o.event_time.strftime("%H:%M") %>">
+        
+        <div class="buttons group">
+        <%= button_to "Save", occurrence_path(o.id), method: :put, class: "update-button edit", remote: true %>
+        <%= button_to "Destroy", occurrence_path(o.id), method: :delete, confirm: "Are you sure?", remote: true, class: "destroy-button edit" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate @occurrences %>
+</div>

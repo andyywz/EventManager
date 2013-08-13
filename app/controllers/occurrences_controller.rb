@@ -1,6 +1,6 @@
 class OccurrencesController < ApplicationController
   # before_filter :authenticate_user!, except: [:index, :show]
-  
+
   def show
     @occurrence = Occurrence.find(params[:id])
     

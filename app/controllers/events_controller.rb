@@ -36,7 +36,6 @@ class EventsController < ApplicationController
       end
     end
     
-    
     if request.xhr?
       recurring_events, events = sort_events[0], sort_events[1]
       render partial: "events", locals: {recurring: recurring_events, special: events}
@@ -47,6 +46,7 @@ class EventsController < ApplicationController
   
   def edit
     @event = Event.find(params[:id])
+    @occurrences = Kaminari.paginate_array(@event.occurrences).page(params[:page])
   end
   
   def update

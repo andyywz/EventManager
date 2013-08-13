@@ -24,7 +24,29 @@ input[type="submit"]:hover {
 }
 
 input.destroy-button {
-	background: red;
+	background: rgba(204, 0, 0, 1);
+	margin: 9px;
+	padding: 3px 20px;
+	border: 1px;
+	border-radius: 3px;
+}
+
+input.destroy-button.edit {
+	margin: 2px;
+  float: left;
+}
+
+input.update-button {
+	background: rgba(48, 116, 56, 1);
+	margin: 9px;
+	padding: 3px 20px;
+	border: 1px;
+	border-radius: 3px;
+}
+
+input.update-button.edit {
+	margin: 2px;
+  float: left;
 }
 
 input.back-button {
@@ -63,4 +85,27 @@ input.back-button {
 
 .avatar-thumb {
 	padding: 5px 0;
+}
+
+#event-edit-form {
+  width: 700px;
+  padding: 20px;
+}
+
+.occurrences-edit {
+  width: 700px;
+  padding: 0 20px 20px 20px;
+}
+
+.occurrences-edit > .occurrences-list {
+  width: 600px;
+}
+
+.occurrences-edit > .occurrences-list > li > .buttons {
+  float: right;
+  width: 200px;
+}
+
+.occurrences-edit > nav {
+  margin: 8px 0;
 }
