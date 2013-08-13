@@ -26,7 +26,7 @@ class EventsController < ApplicationController
       time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
       params[:event][:user_id] = current_user.id
       @event = Event.create(params[:event])
-      p time
+
       if @event.recurring
         52.times do |i|
           @event.occurrences.create({ :event_time => time + i.weeks })
