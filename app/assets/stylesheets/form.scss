@@ -35,6 +35,11 @@ input.destroy-button.edit {
 	margin: 2px;
 }
 
+input.destroy-button.created {
+	margin: 2px;
+  padding: 3px;
+}
+
 input.update-button {
 	background: rgba(48, 116, 56, 1);
 	margin: 9px;
@@ -46,6 +51,11 @@ input.update-button {
 input.update-button.edit {
 	margin: 2px;
   float: right;
+}
+
+input.update-button.created {
+	margin: 2px;
+  padding: 3px;
 }
 
 input.back-button {
@@ -111,4 +121,9 @@ input.back-button {
 
 .occurrences-edit > nav {
   margin: 8px 0;
+}
+
+.status-container {
+  margin: 10px 0;
+  color: rgba(34, 34, 34, 0.8);
 }

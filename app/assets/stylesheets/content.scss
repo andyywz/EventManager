@@ -172,7 +172,7 @@
 
 table {
 	border-collapse: collapse;
-	margin: 5px 30px;
+	margin: 5px 20px;
 }
 
 th, td {
@@ -191,4 +191,8 @@ td {
 
 td.event-name {
 	text-align: left;
+}
+
+td > a.event-show {
+  vertical-align: inherit;
 }

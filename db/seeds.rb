@@ -106,5 +106,10 @@ Occurrence.all.each do |o|
     :user_id => u_id,
     :occurrence_id => o.id
   })
-  u_id = u_id == u1.id ? u2.id : u1.id
+  
+  if u_id == u1.id
+    u_id = u2.id
+  else
+    u_id = u1.id
+  end
 end
