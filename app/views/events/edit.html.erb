@@ -33,8 +33,8 @@
 
           <label for="occurrence_time">Time: </label>
           <input class="occurrence_time" name="occurrence[time]" type="time" value="<%= o.event_time.strftime("%H:%M") %>">
-          
-          <input type="submit" value="Save" class="update-button edit">
+ 
+          <input type="submit" value="Save" class="update-button edit">        
         </form>
       
         <%= button_to "Destroy", occurrence_path(o.id), method: :delete, confirm: "Are you sure?", remote: true, class: "destroy-button edit" %>

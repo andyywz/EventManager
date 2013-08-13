@@ -35,15 +35,32 @@ class OccurrencesController < ApplicationController
     
     if @occurrence.update_attributes({ event_time: time })
       if request.xhr?
-        render partial: "occurrence_info", locals: { occurrence: @occurrence }
+        render partial: "update", locals: { occurrence: @occurrence }
       else
+        flash.now[:notice] = "Save successful!"
         redirect_to current_user
       end
+    else
+      flash.now[:alert] = "Failed to save"
+      redirect_to current_user
     end
   end
   
   def destroy
+    @occurrence = Occurrence.find(params[:id])
     
+    if @occurrence.destroy
+      if request.xhr?
+        # delete DOM using js!!
+        render partial: "destroy", locals: { occurrence: @occurrence }
+      else
+        flash.now[:notice] = "Destroy successful!"
+        redirect_to current_user
+      end
+    else
+      flash.now[:alert] = "Failed to destroy"
+      redirect_to current_user
+    end
   end
 end
 
