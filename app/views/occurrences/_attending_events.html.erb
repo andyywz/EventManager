@@ -7,14 +7,12 @@
 </header>
 
 <div class="post-content">
-  <table id="attending-events-table" class="events-table">
-  	<% if attending_events.empty? %>
-    <tr>
-      <td>
-      <%= user == current_user ? "You are" : "#{user.fname.capitalize} is" %> not attending any events...
-      </td>
-    </tr>
-    <% else %>
+  <% if attending_events.empty? %>
+    
+    <h3 class="message"><%= user == current_user ? "You are" : "#{user.fname.capitalize} is" %> not attending any events...</h3>
+  
+  <% else %>    
+    <table id="attending-events-table" class="events-table">
       <tr>
     		<th>Date</th>
     		<th>Event</th>
@@ -25,6 +23,6 @@
     			<td class="event-name"><%= link_to occurrence.event.name, occurrence_path(occurrence.id), remote: :true, class: "occurrence-show" %></td>
     		</tr>
     	<% end %>
-    <% end %>
-  </table>
+    </table>
+  <% end %>
 </div>

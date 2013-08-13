@@ -3,15 +3,18 @@
     <h3 class="created-title">
       Events <%= user == current_user ? "you" : "#{user.fname.capitalize}" %> created...
     </h3>
+    
   </div>
 </header>
 
 <div class="post-content">
-  <table id="created-events-table" class="events-table">
-  	<% if user.events.empty? %>
-      <%= user == current_user ? "You" : "#{user.fname.capitalize}" %> did not create any events...
+	<% if user.events.empty? %>
     
-    <% else %>
+    <h3 class="message"><%= user == current_user ? "You have " : "#{user.fname.capitalize} has " %>not create any events...</h3>
+  
+  <% else %>
+  
+    <table id="created-events-table" class="events-table">
       <tr>
     		<th>Name</th>
     		<th>Cover</th>
@@ -21,7 +24,7 @@
         <% if user == current_user %>
         <th>Action</th>
         <% end %>
-        
+      
     	</tr>
     	<% user.events.each do |event| %>
     		<tr>
@@ -30,16 +33,21 @@
           <td><%= event.place %></td>
           <td><%= event.age_limit %></td>
           <td><%= event.recurring ? "Weekly" : "Special" %></td>
-          
+        
           <% if user == current_user %>
           <td>
-            <%= button_to "Destroy", event_path(event.id), method: :delete, confirm: "Are you sure?", remote: true, class: "destroy-button created" %>
+            <%= button_to "Destroy", event_path(event.id), method: :delete, confirm: "Deleting this event will delete all occurrences of the event, are you sure you want to do this?", class: "destroy-button created" %>
             <%= button_to "Edit", edit_event_path(event.id), method: :get, class: "update-button created" %>
           </td>
           <% end %>
-          
-    		</tr>
+        
     	<% end %>
-    <% end %>
-  </table>
+    	</tr>
+      
+    </table>   
+  <% end %>
+  
+  <% if current_user == user %>
+    <%= button_to "Create a New Event", new_event_path, method: :get, class: "update-button created" %>
+  <% end %>
 </div>

@@ -37,11 +37,11 @@ class OccurrencesController < ApplicationController
       if request.xhr?
         render partial: "update", locals: { occurrence: @occurrence }
       else
-        flash.now[:notice] = "Save successful!"
+        flash[:notice] = "Save successful!"
         redirect_to current_user
       end
     else
-      flash.now[:alert] = "Failed to save"
+      flash[:alert] = "Failed to save"
       redirect_to current_user
     end
   end
@@ -54,11 +54,11 @@ class OccurrencesController < ApplicationController
         # delete DOM using js!!
         render partial: "destroy", locals: { occurrence: @occurrence }
       else
-        flash.now[:notice] = "Destroy successful!"
+        flash[:notice] = "Destroy successful!"
         redirect_to current_user
       end
     else
-      flash.now[:alert] = "Failed to destroy"
+      flash[:alert] = "Failed to destroy"
       redirect_to current_user
     end
   end

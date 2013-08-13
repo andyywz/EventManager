@@ -16,6 +16,10 @@ class EventsController < ApplicationController
     end
   end
   
+  def new
+    @event = Event.new
+  end
+  
   def create
     # need to check to see if time is in the future
     d = DateTime.parse(params[:occurrence][:date])
@@ -62,8 +66,17 @@ class EventsController < ApplicationController
   end
   
   def destroy
+    @event = Event.find(params[:id])
     
+    if @event.destroy
+        flash[:notice] = "Destroy successful!"
+        redirect_to current_user
+    else
+      flash[:alert] = "Failed to destroy"
+      redirect_to current_user
+    end
   end
+
   
   private
   
