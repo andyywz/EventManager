@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     if request.xhr?
       render partial: "show", locals: { event: @event }
     else
-      redirect_to events_url
+      redirect_to events_path
     end
   end
 
@@ -46,11 +46,12 @@ class EventsController < ApplicationController
   end
   
   def edit
-    
+    @event = Event.find(params[:id])
   end
   
   def update
-    
+    @event = Event.find(params[:id])
+    @event.update_attributes(params[:event])
   end
   
   def destroy

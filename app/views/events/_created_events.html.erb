@@ -33,8 +33,8 @@
           
           <% if user == current_user %>
           <td>
-          <button>Destroy</button>
-          <button>Edit</button>
+          <%= link_to "Destroy", event_path(event.id), :method => :delete, :confirm => "Are you sure?", remote: :true, class: "event-destroy" %>
+          <%= link_to "Edit", edit_event_path(event.id), class: "event-edit" %>
           </td>
           <% end %>
           

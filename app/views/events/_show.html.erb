@@ -5,18 +5,20 @@
 </div>
 
 <div class="event-content">
-  <label>Upcoming Dates:
     <% if @event.recurring %>
+    <label>Upcoming Dates:
       <div class="upcoming">
         <% @event.occurrences.each do |o| %>
         <% next if o.event_time < Date.today %>
           <%= link_to o.event_time.strftime('%a %b %d %Y %I:%M %p'), occurrence_path(o.id), remote: :true, class: "occurrence-show" %>
         <% end %>
       </div>
-    <% else %>
+    </label>
+    <% elsif !@event.recurring && @event.occurrences.first %>
+    <label>Date: 
       <%= link_to @event.occurrences.first.event_time.strftime('%a %b %d %Y %I:%M %p'), occurrence_path(@event.occurrences.first.id), remote: :true, class: "occurrence-show" %>
+    </label>
     <% end %>
-  </label>
   
 	<% if @event.place %>
 		<label>Venue: <%= @event.place %></label>
