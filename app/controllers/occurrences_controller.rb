@@ -11,3 +11,7 @@ class OccurrencesController < ApplicationController
     end
   end
 end
+
+
+# <%= button_to "Save", occurrence_path(o.id), method: :put, class: "update-button edit", remote: true %>
+# <%= button_to "Destroy", occurrence_path(o.id), method: :delete, confirm: "Are you sure?", remote: true, class: "destroy-button edit" %>

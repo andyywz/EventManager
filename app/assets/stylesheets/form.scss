@@ -33,7 +33,7 @@ input.destroy-button {
 
 input.destroy-button.edit {
 	margin: 2px;
-  float: left;
+  float: right;
 }
 
 input.update-button {
@@ -88,22 +88,22 @@ input.back-button {
 }
 
 #event-edit-form {
-  width: 700px;
+  width: 550px;
   padding: 20px;
 }
 
 .occurrences-edit {
-  width: 700px;
+  width: 550px;
   padding: 0 20px 20px 20px;
 }
 
 .occurrences-edit > .occurrences-list {
-  width: 600px;
+  width: 550px;
 }
 
 .occurrences-edit > .occurrences-list > li > .buttons {
   float: right;
-  width: 200px;
+  width: 170px;
 }
 
 .occurrences-edit > nav {

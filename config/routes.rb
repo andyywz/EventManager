@@ -8,5 +8,5 @@ EventManager::Application.routes.draw do
   ActiveAdmin.routes(self)
   resources :users, only: [:index, :show]
   resources :events
-  resources :occurrences, only: :show
+  resources :occurrences
 end
