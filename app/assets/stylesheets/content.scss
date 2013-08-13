@@ -97,7 +97,6 @@
 
 .posts {
 	background: rgba(253, 240, 200, 0.5);
-/*	border: 1px dotted lightgray;*/
 	margin-top: 20px;
 }
 
@@ -105,29 +104,8 @@
 	padding: 20px 0;
 }
 
-/*.post:first-child {
-	border-top: 0;
-}*/
-
 .post > header {
 }
-
-/*.post-thumb {
-	float: left;
-	width: 60px;
-	margin-left: 20px;
-}
-
-.post-thumb > a {
-	display: block;
-	border: 3px solid rgba(132, 151, 143, 1);
-}
-
-.post-thumb > a > img {
-	display: block;
-	width: 100%;
-	height: auto;
-}*/
 
 .post-info {
 	float: left;
@@ -172,7 +150,8 @@
 
 table {
 	border-collapse: collapse;
-	margin: 5px 20px;
+	margin: auto;
+  width: 580px;
 }
 
 th, td {
@@ -194,5 +173,4 @@ td.event-name {
 }
 
 td > a.event-show {
-  vertical-align: inherit;
 }

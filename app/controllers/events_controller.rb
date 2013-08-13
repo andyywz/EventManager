@@ -15,7 +15,6 @@ class EventsController < ApplicationController
       redirect_to events_path
     end
   end
-
   
   def create
     # need to check to see if time is in the future
@@ -51,7 +50,15 @@ class EventsController < ApplicationController
   
   def update
     @event = Event.find(params[:id])
-    @event.update_attributes(params[:event])
+    @occurrences = Kaminari.paginate_array(@event.occurrences).page(params[:page])
+    
+    if @event.update_attributes(params[:event])
+      flash[:notice] = "Update Successful!"
+      redirect_to current_user
+    else
+      flash[:alert] = "Update Failed"
+      render :edit
+    end
   end
   
   def destroy

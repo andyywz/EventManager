@@ -37,7 +37,7 @@ input.destroy-button.edit {
 
 input.destroy-button.created {
 	margin: 2px;
-  padding: 3px;
+  padding: 3px 8px;
 }
 
 input.update-button {
@@ -55,7 +55,7 @@ input.update-button.edit {
 
 input.update-button.created {
 	margin: 2px;
-  padding: 3px;
+  padding: 3px 8px;
 }
 
 input.back-button {
@@ -98,7 +98,7 @@ input.back-button {
 
 #event-edit-form {
   width: 550px;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
 }
 
 .occurrences-edit {

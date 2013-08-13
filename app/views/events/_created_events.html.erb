@@ -25,7 +25,7 @@
     	</tr>
     	<% user.events.each do |event| %>
     		<tr>
-    			<td class="event-name"><%= link_to event.name, event_path(event.id), remote: :true, class: "event-show" %></td>
+    			<td><%= link_to event.name, event_path(event.id), remote: :true, class: "event-show" %></td>
     			<td><%= event.cover ? "$ #{event.cover}" : "-" %></td>
           <td><%= event.place %></td>
           <td><%= event.age_limit %></td>
