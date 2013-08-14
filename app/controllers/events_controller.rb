@@ -49,12 +49,12 @@ class EventsController < ApplicationController
   
   def edit
     @event = Event.find(params[:id])
-    @occurrences = Kaminari.paginate_array(@event.occurrences).page(params[:page])
+    @occurrences = Kaminari.paginate_array(@event.future_occurrences).page(params[:page])
   end
   
   def update
     @event = Event.find(params[:id])
-    @occurrences = Kaminari.paginate_array(@event.occurrences).page(params[:page])
+    @occurrences = Kaminari.paginate_array(@event.future_occurrences).page(params[:page])
     
     if @event.update_attributes(params[:event])
       flash[:notice] = "Update Successful!"

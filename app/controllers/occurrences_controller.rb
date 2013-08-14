@@ -35,14 +35,18 @@ class OccurrencesController < ApplicationController
     
     if @occurrence.update_attributes({ event_time: time })
       if request.xhr?
-        render partial: "update", locals: { occurrence: @occurrence }
+        render partial: "update", locals: { occurrence: @occurrence } 
       else
         flash[:notice] = "Save successful!"
         redirect_to current_user
       end
     else
-      flash[:alert] = "Failed to save"
-      redirect_to current_user
+      if request.xhr?
+        render partial: "fail", locals: { occurrence: @occurrence }
+      else
+        flash[:alert] = "Failed to save. Make sure your new date/time is not in the past."
+        redirect_to current_user
+      end
     end
   end
   

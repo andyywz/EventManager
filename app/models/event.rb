@@ -3,4 +3,10 @@ class Event < ActiveRecord::Base
   
   has_many :occurrences, dependent: :destroy
   belongs_to :user
+  
+  # test this
+  
+  def future_occurrences
+    self.occurrences.where("event_time >= ?", Date.today)
+  end
 end
