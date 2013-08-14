@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
+    @occurrences = Occurrence.where("event_time >= ? AND event_time <= ?", Date.today, Date.today + 30.days)
   end
   
   def show
@@ -10,7 +11,6 @@ class UsersController < ApplicationController
     
     # Test these queries
     @attending_events = @user.attending_events.where("event_time >= ?", Date.today).order("event_time")
-    @occurrences = Occurrence.where("event_time >= ? AND event_time <= ?", Date.today, Date.today + 30.days)
   end
   
 end

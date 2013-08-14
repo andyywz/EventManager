@@ -1,0 +1,56 @@
+.monthly-occurrences {
+  background: rgba(253, 240, 200, 0.5);
+  padding: 20px;
+  width: 600px;
+  float: left;
+}
+
+.monthly-occurrences > header {
+  width: 100%;
+}
+
+.monthly-occurrences > header > .attending-title {
+  font-size: 25px;
+  width: 600px;
+  text-align: center;
+}
+
+.home-content {
+  margin-top: 10px;
+}
+
+.events-table .event-name > a {
+  color: rgba(48, 116, 56, 1);
+}
+
+.events-table .event-name > a:hover {
+  color: rgba(48, 116, 56, 0.5);
+}
+
+.users-list {
+  padding-left: 30px;
+  float: left;
+}
+
+.users-list-title {
+  font-size: 18px;
+  padding: 5px 0;
+  border-bottom: 1px dashed lightgray;
+}
+
+.users-list > ul > li {
+  font-size: 14px;
+  padding: 5px;
+}
+
+.users-list > ul > li:first-child {
+  padding-bottom: 0;
+}
+
+.users-list > ul > li > a {
+  color: rgba(48, 116, 56, 1);
+}
+
+.users-list > ul > li > a:hover {
+  color: rgba(48, 116, 56, 0.5);  
+}

@@ -2,10 +2,31 @@
 	Welcome, <%= current_user.fname + " " + current_user.lname %>!
 </h1>
 
-<ul>
-	<% @users.each do |user| %>
-	<li>
-		<a href="<%= user_path(user.id) %>"><%= "#{user.fname} #{user.lname}" %></a>
-	</li>
-	<% end %>
-</ul>
+<section class="group">
+  <article class="monthly-occurrences">
+    <%= render partial: "occurrences/upcoming_occurrences", 
+                locals: {user: current_user, occurrences: @occurrences} %>
+  </article>
+  
+  <article class="users-list">
+    <header>
+      <h3 class="users-list-title">
+        Registered Users:
+      </h3>
+    </header>
+    
+    <ul>
+    	<% @users.each do |user| %>
+    	<li>
+    		<a href="<%= user_path(user.id) %>"><%= "#{user.fname} #{user.lname}" %></a>
+    	</li>
+    	<% end %>
+    </ul>
+  </article>
+</section>
+
+<script>
+$(document).ready(function () {
+  homepage();
+});
+</script>

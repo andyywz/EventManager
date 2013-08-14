@@ -10,6 +10,7 @@
 	border-radius: 15px;
 	box-shadow: 5px 5px 3px rgba(0,0,0,0.5);
 	display: block;
+  z-index: 12;
 }
 
 .shadowbox {
@@ -20,6 +21,7 @@
 	top: 0;
 	left: 0;
 	display: block;
+  z-index: 11;
 }
 
 .hide {

@@ -19,9 +19,6 @@
     <ul>
       <li><a class="attending-events-button" href="#">Attending Events</a></li>
       <li><a class="created-events-button" href="#">Created Events</a></li>
-      <% if @user == current_user %>
-        <li><a class="upcoming-occurrences-button" href="#">Upcoming Events</a></li>
-      <% end %>
       <li><a class="users-friends-button" href="#">Friends</a></li>
     </ul>
   </nav>
@@ -44,12 +41,12 @@
     <article class="post created hide">
       <%= render partial: "events/created_events", locals: {user: @user} %>
     </article>
-    
-    <% if @user == current_user %>
-    <article class="post monthly-occurrences">
-      <%= render partial: "occurrences/upcoming_occurrences", locals: {user: @user, occurrences: @occurrences} %>
-    </article>
-    <% end %>
   </div>
   
 </section>
+
+<script>
+$(document).ready(function () {
+  showEvent();
+});
+</script>

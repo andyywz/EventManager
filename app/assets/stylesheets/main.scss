@@ -17,6 +17,8 @@ salmon: rgba(236, 99, 63, ?);
 charcoal: rgba(34, 34, 34, ?);
 
 my_green: rgba(48, 116, 56, 1);
+
+background: rgba(253, 240, 200, 0.5)
 */
 
 /* --- RESET --- */
@@ -45,10 +47,15 @@ ul, li {
 
 a {
 	text-decoration: none;
+  color: rgba(34, 34, 34, 1);
 }
 
 a:visited {
-	color: #00f;
+  color: rgba(34, 34, 34, 1);
+}
+
+a:hover {
+  color: rgba(34, 34, 34, 0.5);
 }
 
 strong {
@@ -96,5 +103,5 @@ i {
 	font-size: 25px;
 	font-weight: 300;
 	font-family: 'Source Sans Pro', sans-serif;
-	color: rgba(249, 225, 224, 1);
+	color: rgba(34, 34, 34, 0.9);
 }

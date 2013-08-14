@@ -3,13 +3,13 @@
 </h1>
 
 <% if user_signed_in? %>
-<li>
+<div>
 	<a id="new-event-button" href="#">New Event</a>
 	
 	<div class="new-event hide">
 		<%= render partial: "new" %>
 	</div>
-</li>
+</div>
 <% end %>
 
 <section class="all-events">

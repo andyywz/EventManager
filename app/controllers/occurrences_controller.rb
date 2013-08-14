@@ -62,8 +62,12 @@ class OccurrencesController < ApplicationController
         redirect_to current_user
       end
     else
-      flash[:alert] = "Failed to destroy"
-      redirect_to current_user
+      if request.xhr?
+        render nothing: true
+      else
+        flash[:alert] = "Failed to destroy"
+        redirect_to current_user
+      end
     end
   end
 end

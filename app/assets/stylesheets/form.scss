@@ -6,9 +6,9 @@ input[type="submit"] {
 	margin-bottom: 5px;
 	padding: 5px 20px;
 	border: 1px;
-	border-radius: 5px;
+	border-radius: 3px;
   background: gray;
-	opacity: 0.6;
+	opacity: 0.8;
 	font-size: 13px;
 	color: white;
 	cursor: pointer;
@@ -20,7 +20,7 @@ input[type="submit"]:first-child {
 }
 
 input[type="submit"]:hover {
-	opacity: 1;
+	opacity: 0.5;
 }
 
 input.destroy-button {
@@ -138,4 +138,9 @@ input.back-button {
 .status-container {
   margin: 10px 0;
   color: rgba(34, 34, 34, 0.8);
+}
+
+#new_event {
+  width: 600px;
+  margin:10px;
 }
