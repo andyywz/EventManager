@@ -40,6 +40,12 @@ input.destroy-button.created {
   padding: 3px 8px;
 }
 
+input.destroy-button.attending {
+	margin: 2px;
+  padding: 3px 8px;
+  height: auto;
+}
+
 input.update-button {
 	background: rgba(48, 116, 56, 1);
 	margin: 9px;
@@ -56,6 +62,12 @@ input.update-button.edit {
 input.update-button.created {
 	margin: 2px;
   padding: 3px 8px;
+}
+
+input.create-button.attending {
+	margin: 2px;
+  padding: 3px 8px;
+  height: auto;
 }
 
 input.back-button {

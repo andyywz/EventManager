@@ -38,4 +38,14 @@ $(document).ready(function () {
 		
 		$("article.post.created").slideToggle();
 	});
+  
+  $("#upcoming-events-table").on("ajax:success", ".create-button.attending", function (event) {
+    $(event.target).fadeToggle();
+    $(event.target).closest("form.button_to").siblings().find("input[type='submit'].attending").fadeToggle();
+  });
+  
+  $("#upcoming-events-table").on("ajax:success", ".destroy-button.attending", function (event) {
+    $(event.target).fadeToggle();
+    $(event.target).closest("form.button_to").siblings().find("input[type='submit'].attending").fadeToggle();
+  });
 });

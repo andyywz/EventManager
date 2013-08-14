@@ -6,7 +6,8 @@
   <div class="profile-info">
     <h2><%= @user.fname + " " + @user.lname %></h2>
 		<% if @user == current_user %>
-			<%= button_to "Edit", edit_user_registration_url, method: "get" %>
+			<%= button_to "Edit", edit_user_registration_url, method: :get %>
+      <%= button_to "New Event", new_event_path, method: :get, class: "update-button created" %>
 		<% end %>
     <p>
       <strong>[ username ] </strong><%= @user.username %><br>
@@ -18,6 +19,9 @@
     <ul>
       <li><a class="attending-events-button" href="#">Attending Events</a></li>
       <li><a class="created-events-button" href="#">Created Events</a></li>
+      <% if @user == current_user %>
+        <li><a class="upcoming-occurrences-button" href="#">Upcoming Events</a></li>
+      <% end %>
       <li><a class="users-friends-button" href="#">Friends</a></li>
     </ul>
   </nav>
@@ -32,15 +36,20 @@
   <div class="posts">
     <article class="post-event">
     </article>
-    
-    <article class="post attending">  
+      
+    <article class="post attending">
       <%= render partial: "occurrences/attending_events", locals: {user: @user, attending_events: @attending_events} %>
     </article>
-    
+  
     <article class="post created hide">
       <%= render partial: "events/created_events", locals: {user: @user} %>
     </article>
     
+    <% if @user == current_user %>
+    <article class="post monthly-occurrences">
+      <%= render partial: "occurrences/upcoming_occurrences", locals: {user: @user, occurrences: @occurrences} %>
+    </article>
+    <% end %>
   </div>
   
 </section>

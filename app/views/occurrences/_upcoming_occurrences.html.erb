@@ -1,0 +1,41 @@
+<header class="group">
+  <div class="post-info">
+    <h3 class="attending-title">
+      Events that are happening in the next 30 days!
+    </h3>
+  </div>
+</header>
+
+<div class="post-content">
+  <% if occurrences.empty? %>
+    
+    <h3 class="message">There are no events in the near future... -_-'</h3>
+  
+  <% else %>
+  
+    <table id="upcoming-events-table" class="events-table">
+    
+      <tr>
+    		<th>Date</th>
+    		<th>Event</th>
+        <th>Action</th>
+    	</tr>
+      
+    	<% occurrences.each do |o| %>
+    		<tr>
+    			<td><%= o.event_time.strftime("%a - %b %d") %></td>
+    			<td class="event-name"><%= link_to o.event.name, occurrence_path(o.id), remote: :true, class: "occurrence-show" %></td>
+          
+          <td>
+            <%= button_to "Attend", occurrence_attendings_path(o.id), remote: :true, method: :post,
+                          class: "create-button attending#{" hide" if user.attending_events.include?(o)}" %>
+            <%= button_to "Unattend", occurrence_attendings_path(o.id), remote: :true, method: :delete, 
+                          class: "destroy-button attending#{" hide" unless user.attending_events.include?(o)}" %>
+          </td>
+    		</tr>
+    	<% end %>
+      
+    </table>
+    
+  <% end %>
+</div>
