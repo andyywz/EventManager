@@ -54,7 +54,9 @@
 .event-name {
 	float: left;
 	margin-left: 15px;
-	width: auto;
+  width: auto;
+/*  display:block;
+  text-overflow: ellipsis;*/
 }
 
 .event-time {
