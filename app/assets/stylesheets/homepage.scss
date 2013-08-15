@@ -1,17 +1,14 @@
-.homepage {
+.homepage-main {
   width: 700px;
+  float: left;
 }
 
-.homepage > article {
+.homepage-main > article {
   margin-top: 20px;
 }
 
-.homepage > article:first-child {
+.homepage-main > article:first-child {
   margin-top: 0;
-}
-
-.homepage-sidebar {
-  width: 200px;
 }
 
 .monthly-occurrences {
@@ -61,14 +58,25 @@
   color: rgba(48, 116, 56, 0.5);
 }
 
-.users-list {
-  padding-left: 30px;
+.homepage-sidebar {
+  width: 200px;
   float: right;
+}
+
+.homepage-sidebar > article {
+  float: left;
+  position: fixed;
+  padding: 15px 20px;
+  background: rgba(100, 100, 190, 0.15);
+  border: 1px solid rgba(179, 177, 178, 0.3);
+  border-radius: 10px;
+}
+
+.users-list {
 }
 
 .users-list-title {
   font-size: 18px;
-  padding: 5px 0;
   border-bottom: 1px dashed lightgray;
 }
 

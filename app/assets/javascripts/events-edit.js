@@ -1,4 +1,4 @@
-var editEvent = function () {
+var eventsEdit = function () {
 	$(".occurrence-edit-form").on("ajax:success", function (event, data) {
     $(".status-container").html(data);
 	});

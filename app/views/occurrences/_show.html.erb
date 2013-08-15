@@ -33,16 +33,16 @@
 		</label>
 	<% end %>
   
-  <label>Posted by <%= @occurrence.event.user.username %>.</label>
+  <!-- <label>Posted by <%= @occurrence.event.user.username %>.</label> -->
 	
   <label>Attendings list...</label>
-  <ul>
+  <ol>
     <% @occurrence.attending_users.each do |user| %>
     <li>
       <a href="<%= user_path(user.id) %>"><%= user.username %></a>
     </li>
     <% end %>
-  </ul>
+  </ol>
   
 </div>
 

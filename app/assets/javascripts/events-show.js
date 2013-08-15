@@ -1,40 +1,20 @@
-var showEvent = function () {
+var eventsShow = function () {
 	$(".content-main").on("ajax:success", ".occurrence-show", function (event, data) {
 		$("article.post-event").html(data);
-
-		if ($("article.post.created").is(":visible")) {
-			$("article.post.created").slideToggle();
-		};
-
-		if ($("article.post.attending").is(":visible")) {
-			$("article.post.attending").slideToggle();
-		};
 	});
 
 	$(".content-main").on("ajax:success", ".event-show", function (event, data) {
 		$("article.post-event").html(data);
-
-		if ($("article.post.created").is(":visible")) {
-			$("article.post.created").slideToggle();
-		};
-
-		if ($("article.post.attending").is(":visible")) {
-			$("article.post.attending").slideToggle();
-		};
 	});
 
 	$(".profile-nav").on("click", ".attending-events-button", function () {
-		if ($("article.post.created").is(":visible")) {
-			$("article.post.created").slideToggle();
-		};
+    hideCreated();
 
 		$("article.post.attending").slideToggle();
 	});
 
 	$(".profile-nav").on("click", ".created-events-button", function () {
-		if ($("article.post.attending").is(":visible")) {
-			$("article.post.attending").slideToggle();
-		};
+    hideAttending();
 
 		$("article.post.created").slideToggle();
 	});
@@ -44,4 +24,16 @@ var showEvent = function () {
     $(event.target).find("input[type='submit'].attending").toggleClass("hide");
     $(event.target).siblings().find("input[type='submit'].attending").toggleClass("hide");
   });
+};
+
+var hideCreated = function () {
+  if ($("article.post.created").is(":visible")) {
+    $("article.post.created").slideToggle();
+  };
+};
+
+var hideAttending = function () {
+  if ($("article.post.attending").is(":visible")) {
+    $("article.post.attending").slideToggle();
+  };
 };
