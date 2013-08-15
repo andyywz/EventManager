@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
-    @occurrences = Occurrence.where("event_time >= ? AND event_time <= ?", Date.today, Date.today + 30.days)
+    @occurrences = Occurrence.where("event_time >= ? AND event_time <= ?", Date.today, Date.today + 30.days).order("event_time")
   end
   
   def show

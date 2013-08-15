@@ -170,9 +170,11 @@ td {
 
 td.event-name {
 	text-align: left;
+  width: 80%;
 }
 
 td > a.event-show {
+  word-wrap: break-word;
 }
 
 .message {

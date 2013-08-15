@@ -1,3 +1,19 @@
+.homepage {
+  width: 700px;
+}
+
+.homepage > article {
+  margin-top: 20px;
+}
+
+.homepage > article:first-child {
+  margin-top: 0;
+}
+
+.homepage-sidebar {
+  width: 200px;
+}
+
 .monthly-occurrences {
   background: rgba(253, 240, 200, 0.5);
   padding: 20px;
@@ -15,12 +31,30 @@
   text-align: center;
 }
 
+.created-events {
+  background: rgba(253, 240, 200, 0.5);
+  padding: 20px;
+  width: 600px;
+  float: left;
+}
+
+.created-events > header {
+  width: 100%;
+}
+
+.created-events > header > .attending-title {
+  font-size: 25px;
+  width: 600px;
+  text-align: center;
+}
+
 .home-content {
   margin-top: 10px;
 }
 
 .events-table .event-name > a {
   color: rgba(48, 116, 56, 1);
+  word-wrap: break-word;
 }
 
 .events-table .event-name > a:hover {
@@ -29,13 +63,17 @@
 
 .users-list {
   padding-left: 30px;
-  float: left;
+  float: right;
 }
 
 .users-list-title {
   font-size: 18px;
   padding: 5px 0;
   border-bottom: 1px dashed lightgray;
+}
+
+.users-list > ul {
+  float: left;
 }
 
 .users-list > ul > li {

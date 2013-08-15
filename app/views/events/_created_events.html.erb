@@ -21,9 +21,6 @@
         <th>Venue</th>
         <!-- <th>Age Limit</th> -->
         <th>Type</th>
-        <% if user == current_user %>
-        <th>Action</th>
-        <% end %>
       
     	</tr>
     	<% user.events.each do |event| %>
@@ -33,13 +30,6 @@
           <td><%= event.place %></td>
           <!-- <td><%#= event.age_limit %></td> -->
           <td><%= event.recurring ? "Weekly" : "Special" %></td>
-        
-          <% if user == current_user %>
-          <td>
-            <%= button_to "Destroy", event_path(event.id), method: :delete, confirm: "Deleting this event will delete all occurrences of the event, are you sure you want to do this?", class: "destroy-button created" %>
-            <%= button_to "Edit", edit_event_path(event.id), method: :get, class: "update-button created" %>
-          </td>
-          <% end %>
         
     	<% end %>
     	</tr>
