@@ -35,4 +35,14 @@
   
   <label>Posted by <%= @occurrence.event.user.username %>.</label>
 	
+  <label>Attendings list...</label>
+  <ul>
+    <% @occurrence.attending_users.each do |user| %>
+    <li>
+      <a href="<%= user_path(user.id) %>"><%= user.username %></a>
+    </li>
+    <% end %>
+  </ul>
+  
 </div>
+
