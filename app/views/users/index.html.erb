@@ -28,6 +28,7 @@
     
       <ul>
       	<% @users.each do |user| %>
+        <% next if user == current_user %>
       	<li>
       		<a href="<%= user_path(user.id) %>"><%= "#{user.fname} #{user.lname}" %></a>
       	</li>

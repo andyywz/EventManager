@@ -22,8 +22,10 @@
 <% end %>
 
 <div class="occurrences-edit">
-  <div class="status-container"></div>
   
+  <%= render partial: "occurrences/create", locals: { occurrences: @occurrences } %>
+  
+  <!-- <div class="status-container"></div>
   <ul class="occurrences-list">
     <% @occurrences.each do |o| %>
       <li class="group">
@@ -45,11 +47,17 @@
       </li>
     <% end %>
   </ul>
-  <%= paginate @occurrences %>
+  <%= paginate @occurrences %> -->
+</div>
+
+<div class="occurrences-new">
+  <%= button_to "New Occurrence", new_event_occurrence_path(@event.id), method: :get, remote: true, class: "new-button edit" %>
+  <div class="form-container"></div>
 </div>
 
 <script>
 $(document).ready(function () {
   eventsEdit();
+  occurrencesCreate();
 });
 </script>

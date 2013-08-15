@@ -7,6 +7,6 @@ class Event < ActiveRecord::Base
   # test this
   
   def future_occurrences
-    self.occurrences.where("event_time >= ?", Date.today)
+    self.occurrences.where("event_time >= ?", Date.today).order("event_time")
   end
 end

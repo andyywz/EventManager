@@ -16,11 +16,41 @@ class OccurrencesController < ApplicationController
   end
   
   def new
-    
+    @event = Event.find(params[:event_id])
+    if request.xhr?
+      render partial: "new", locals: {event: @event}
+    else
+      render :new
+    end
   end
   
   def create
+    @event = Event.find(params[:event][:id])    
+    d = DateTime.parse(params[:occurrence][:date])
+    t = DateTime.parse(params[:occurrence][:time])
+    time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
     
+    @occurrence = Occurrence.new({
+      event_id: params[:event][:id],
+      event_time: time
+    })
+    
+    if @occurrence.save
+      @occurrences = Kaminari.paginate_array(@event.future_occurrences).page(params[:page])
+      if request.xhr?
+        render partial: "create", locals: { occurrences: @occurrences } 
+      else
+        flash[:notice] = "Save successful!"
+        redirect_to current_user
+      end
+    else
+      if request.xhr?
+        render partial: "fail"
+      else
+        flash[:alert] = "Failed to save. Make sure your new date/time is not in the past."
+        redirect_to current_user
+      end
+    end
   end
   
   def edit
@@ -42,7 +72,7 @@ class OccurrencesController < ApplicationController
       end
     else
       if request.xhr?
-        render partial: "fail", locals: { occurrence: @occurrence }
+        render partial: "fail"
       else
         flash[:alert] = "Failed to save. Make sure your new date/time is not in the past."
         redirect_to current_user

@@ -1,0 +1,13 @@
+<form action="<%= occurrences_path %>" method="post" data-remote='true' class="occurrence-new-form">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  
+  <label for="occurrence_date">Date: </label>
+  <input class="occurrence_date" name="occurrence[date]" type="date" value="">
+
+  <label for="occurrence_time">Time: </label>
+  <input class="occurrence_time" name="occurrence[time]" type="time" value="">
+  
+  <input type="hidden" name="event[id]" value="<%= event.id %>">
+  
+  <input type="submit" value="Create" class="create-button edit">        
+</form>
