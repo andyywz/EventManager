@@ -16,11 +16,23 @@
       <tr>
     		<th>Date</th>
     		<th>Event</th>
+        <% unless user == current_user %>
+        <th>Action</th>
+        <% end %>
     	</tr>
     	<% attending_events.each do |occurrence| %>
     		<tr>
     			<td><%= occurrence.event_time.strftime("%a - %b %d") %></td>
     			<td class="event-name"><%= link_to occurrence.event.name, occurrence_path(occurrence.id), remote: :true, class: "occurrence-show" %></td>
+          
+          <% unless user == current_user %>
+          <td>
+            <%= button_to "Attend", occurrence_attendings_path(occurrence.id), remote: :true, method: :post,
+                          class: "create-button attending#{" hide" if current_user.attending_events.include?(occurrence)}" %>
+            <%= button_to "Unattend", occurrence_attendings_path(occurrence.id), remote: :true, method: :delete, 
+                          class: "destroy-button attending#{" hide" unless current_user.attending_events.include?(occurrence)}" %>
+          </td>
+          <% end %>
     		</tr>
     	<% end %>
     </table>

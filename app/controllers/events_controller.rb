@@ -86,7 +86,7 @@ class EventsController < ApplicationController
     Occurrence.order("event_time").each do |o|
       if o.event.recurring == true && o.event_time.between?(Date.today, Date.today + 1.weeks)
         recurring_events << o
-      elsif o.event.recurring != true && o.event_time >= Date.today
+      elsif o.event.recurring != true && o.event_time.between?(Date.today, Date.today + 1.weeks)
         events << o
       end
     end

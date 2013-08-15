@@ -4,7 +4,7 @@
 			<%= o.event.name %>
 		</h2>
 		<time data-datestamp="<%= o.event_time.to_i %>" class="event-time">
-			<%= o.event_time.strftime('%a %b %d %Y') %>
+			<%= o.event_time.strftime('%a') %>
 			<%= o.event_time.strftime('%I:%M %p') %>
 		</time>
 	</div>
