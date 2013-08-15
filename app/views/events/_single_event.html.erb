@@ -22,6 +22,14 @@
 				<%= o.event.body %>
 			</div>
 		</label>
-
+    
+    <% if user_signed_in? %>
+    <div class="attend-buttons">
+    <%= button_to "Attend", occurrence_attendings_path(o.id), remote: :true, method: :post,
+                  class: "create-button attending#{" hide" if current_user.attending_events.include?(o)}" %>
+    <%= button_to "Unattend", occurrence_attendings_path(o.id), remote: :true, method: :delete, 
+                  class: "destroy-button attending#{" hide" unless current_user.attending_events.include?(o)}" %>
+    </div>
+    <% end %>      
 	</div>
 </li>
