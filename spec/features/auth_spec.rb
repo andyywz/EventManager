@@ -33,6 +33,8 @@ feature "Sign up" do
   
   it "logs the user in and redirects them to events index on success" do
     sign_up_as_hello_world
+    
+    page.should have_content "Welcome! You have signed up successfully."
     page.should have_link "hello_world"
   end
 end
@@ -57,5 +59,34 @@ feature "Login" do
   it "has a login page" do
     visit "/users/sign_in"
     page.should have_button "Login"
+  end
+  
+  it "takes a username/email and password" do
+    visit "/users/sign_in"
+    page.should have_content "Username or Email"
+    page.should have_content "Password"
+  end
+ 
+  it "returns to login on failure" do
+    visit "/users/sign_in"
+    fill_in "Username", with: "hello_world"
+    fill_in "Password", with: "hello"
+    click_button "Login"
+    
+    page.should have_content "Invalid email or password."
+    page.should have_button "Login"
+  end
+  
+  it "takes a user to events index on success" do
+    sign_up_as_hello_world
+    click_link "Logout"
+    
+    visit "/users/sign_in"
+    fill_in "Username or Email", with: "hello_world"
+    fill_in "Password", with: "pass"
+    click_button "Login"
+    
+    page.should have_content "Signed in successfully."
+    page.should have_link "hello_world"
   end
 end
