@@ -25,7 +25,7 @@ RSpec.configure do |config|
 end
 
 def sign_up(fname, lname, username)
-  visit "users/sign_up"
+  visit "/users/sign_up"
   fill_in "First Name", with: fname
   fill_in "Last Name", with: lname
   fill_in "New Username", with: username
@@ -36,7 +36,7 @@ def sign_up(fname, lname, username)
 end
 
 def sign_up_as_hello_world
-  sign_up("hello","world","helloWorld")
+  sign_up("hello","world","hello_world")
 end
 
 def login(username)
@@ -78,7 +78,7 @@ def make_weekly_event_from_index(name = nil)
 end
 
 def make_special_event(name = nil)
-  name || = "Special Event"
+  name ||= "Special Event"
   event = make_event_hash(name, false)
   
   visit "/events/new"

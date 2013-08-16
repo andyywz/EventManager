@@ -6,13 +6,15 @@ class User < ActiveRecord::Base
   attr_accessible :fname, :lname, :kind, :username, :login, :avatar
   
   attr_accessor :login
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: ["100x100>", :png] }, default_url: "/attachments/"
-    
+
+  validates :username, uniqueness: { case_sensitive: false }
+  validates :username, :fname, :lname, presence: true    
+
   has_many :events
   has_many :attendings
   has_many :attending_events, through: :attendings, source: :occurrence
   
-  validates :username, uniqueness: { case_sensitive: false }
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: ["100x100>", :png] }, default_url: "/attachments/"
   
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
