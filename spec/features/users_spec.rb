@@ -1,6 +1,6 @@
 require "spec_helper"
 
-feature "User Model" do
+feature "User" do
   it "validates that the username is unique" do
     visit "/users/sign_up"
     sign_up_as_hello_world
