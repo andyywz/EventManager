@@ -36,3 +36,26 @@ feature "Sign up" do
     page.should have_link "hello_world"
   end
 end
+
+feature "Sign out" do
+  it "has a sign out button" do
+    sign_up_as_hello_world
+    page.should have_link "Logout"
+  end
+  
+  it "logs a user out on click" do
+    sign_up_as_hello_world
+    
+    click_link "Logout"
+    
+    page.should have_link "Login"
+    page.should have_link "Create a New Account?"
+  end
+end
+
+feature "Login" do
+  it "has a login page" do
+    visit "/users/sign_in"
+    page.should have_button "Login"
+  end
+end
