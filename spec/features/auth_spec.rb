@@ -18,7 +18,11 @@ feature "Sign up" do
   it "validates the presence of the user's username, email and password" do
     fill_in "user_fname", with: "hello"
     fill_in "user_lname", with: "world"
+    
     click_button "Sign Up"
+    page.should have_content "Username can't be blank" 
+    page.should have_content "Email can't be blank"
+    page.should have_content "Password can't be blank"
     page.should have_button "Sign Up"
   end
   
@@ -27,7 +31,23 @@ feature "Sign up" do
     fill_in "user_email", with: "test@example.com"
     fill_in "user_password", with: "test"
     fill_in "user_password_confirmation", with: "test"
+    
     click_button "Sign Up"
+    page.should have_content "Fname can't be blank"
+    page.should have_content "Lname can't be blank"
+    page.should have_button "Sign Up"
+  end
+  
+  it "validates that the password is at least 4 characters long" do
+    fill_in "user_fname", with: "hello"
+    fill_in "user_lname", with: "world"
+    fill_in "user_username", with: "hello_world"
+    fill_in "user_email", with: "test@example.com"
+    fill_in "user_password", with: "abc"
+    fill_in "user_password_confirmation", with: "abc"
+    
+    click_button "Sign Up"
+    page.should have_content "Password is too short"
     page.should have_button "Sign Up"
   end
   
@@ -39,8 +59,8 @@ feature "Sign up" do
   end
 end
 
-feature "Sign out" do
-  it "has a sign out button" do
+feature "Logout" do
+  it "has a logout button" do
     sign_up_as_hello_world
     page.should have_link "Logout"
   end
