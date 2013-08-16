@@ -50,5 +50,8 @@ gem 'unicorn'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'debugger'
+end
