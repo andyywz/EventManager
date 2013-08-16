@@ -109,4 +109,30 @@ feature "Login" do
     page.should have_content "Signed in successfully."
     page.should have_link "hello_world"
   end
+  
+  it "allows a user to login with username" do
+    sign_up_as_hello_world
+    click_link "Logout"
+    
+    visit "/users/sign_in"
+    fill_in "Username or Email", with: "hello_world"
+    fill_in "Password", with: "pass"
+    click_button "Login"
+    
+    page.should have_content "Signed in successfully."
+    page.should have_link "hello_world"
+  end
+  
+  it "allows a user to login with email" do
+    sign_up_as_hello_world
+    click_link "Logout"
+    
+    visit "/users/sign_in"
+    fill_in "Username or Email", with: "hello_world@example.com"
+    fill_in "Password", with: "pass"
+    click_button "Login"
+    
+    page.should have_content "Signed in successfully."
+    page.should have_link "hello_world"
+  end
 end

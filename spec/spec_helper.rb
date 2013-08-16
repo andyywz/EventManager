@@ -24,6 +24,10 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
 end
 
+# Do this if the database is reset.
+# rake db:test:prepare
+# rake db:test:load
+
 def sign_up(fname, lname, username)
   visit "/users/sign_up"
   fill_in "First Name", with: fname
