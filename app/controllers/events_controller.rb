@@ -21,6 +21,7 @@ class EventsController < ApplicationController
   end
   
   def create
+    # Error handle this!!
     # need to check to see if time is in the future
     if params[:occurrence][:date] != "" && params[:occurrence][:time] != ""
       d = DateTime.parse(params[:occurrence][:date])
@@ -33,15 +34,25 @@ class EventsController < ApplicationController
     if d && t && d >= DateTime.now.utc.to_date
       time = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec)
       params[:event][:user_id] = current_user.id
-      @event = Event.create(params[:event])
-      @event.create_occurrences(time)
-    end
-    
-    if request.xhr?
-      recurring_events, events = sort_events[0], sort_events[1]
-      render partial: "events", locals: {recurring: recurring_events, special: events}
-    else
-      redirect_to events_url
+      @event = Event.new(params[:event])
+      
+      if @event.save
+        @event.create_occurrences(time)
+        
+        if request.xhr?
+          recurring_events, events = sort_events[0], sort_events[1]
+          render partial: "events", locals: {recurring: recurring_events, special: events}
+        else
+          redirect_to events_url
+        end
+      else
+        if request.xhr?
+          recurring_events, events = sort_events[0], sort_events[1]
+          render partial: "events", locals: {recurring: recurring_events, special: events}
+        else
+          redirect_to events_url
+        end
+      end
     end
   end
   

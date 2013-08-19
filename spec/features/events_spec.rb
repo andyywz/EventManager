@@ -23,7 +23,7 @@ feature "Creating an event" do
       page.should have_content "ETC"
     end
     
-    it "validates the presence of name, venue, start date, and time" do
+    it "validates the presence of name, venue" do
       fill_in "event_cover", with: 100
       fill_in "event_body", with: "this should fail"
       
