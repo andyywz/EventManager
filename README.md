@@ -19,6 +19,8 @@ Users can attend events and edit their profiles. Users can also create new event
 * Kaminari
 * AWS for db storage
 * ActiveAdmin for administration controls
+* Figaro for AWS keys
+* RSpec for testing
 
 ### TODO
 * Add styling for the attending list
